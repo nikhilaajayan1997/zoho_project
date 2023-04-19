@@ -16,6 +16,9 @@ class company_details(models.Model):
     industry_type = models.CharField(max_length=255,null=True,blank=True)
     profile_pic = models.ImageField(null=True,blank = True,upload_to = 'image/patient')
 
+
+
+
 class Sales(models.Model):
     Account_type=models.TextField(max_length=255)
     Account_name=models.TextField(max_length=255)
@@ -23,6 +26,8 @@ class Sales(models.Model):
     Account_desc=models.TextField(max_length=255)
     def __str__(self):
         return self.Account_name
+    
+
 
 class Purchase(models.Model):
     Account_type=models.TextField(max_length=255)
@@ -31,6 +36,10 @@ class Purchase(models.Model):
     Account_desc=models.TextField(max_length=255)
     def __str__(self):
         return self.Account_name
+
+
+
+
 class Unit(models.Model):
     unit=models.TextField(max_length=255)
 

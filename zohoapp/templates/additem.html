@@ -1,285 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="static/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/css/bootstrap.min.css">
-	  <link rel="stylesheet" type="static/text/css" href="css/nunito-font.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="static/css/style.css"/>
-    <script src="https://kit.fontawesome.com/3b9793c077.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Zoho Django</title>
-    <style>
-
-      body{
-
-        background-image: url("{% static 'images/wallpaper1.jpg'%}");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        background-attachment: fixed;
-      }
-
-      .rounded-circle{
-
-        width: 60px;
-      }
-
-      h3{
-
-        font-size: 20px;
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        color: azure; 
-        justify-content: center;
-        text-transform: capitalize;
-      }
-      .navbar.vertical li.full-height {
-  height: 100%;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-right: 1px solid #ccc;
-  
-
-}
-
-.navbar.vertical li.full-height a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #ece3e3; /* Change to your desired link color */
-  padding: 1rem; /* Add padding to the link text to create clickable area */
-}
-.active{
-  color: #ccc;
-}
-.active :hover{
-  background-color: rgb(90, 90, 240);
-
-}
-label{
-    color: #ccc;
-}
-.popup{
-  height: 30rem;
-  width: 40rem;
-  background-color: rgb(228, 248, 248);
-  border-radius: 1rem;
-  position: absolute;
-  top: -15%;
-  left: 40%;
-  transform: translate(-50%,-50%)scale(0.1);
-  text-align: center;
-  padding: 0 5rem 5 rem;
-  color: black;
-  top: 50%;
-  visibility: hidden;
-  transform: translate(-50%,-50%)scale(0.1);
-
-}
-
-.open-popup{
-  top: 50%;
-  visibility: visible;
-  transform: translate(-50%,-50%)scale(1);
-  transition: transform 0.4s ,top 0.4s;
-
-}
-
-/* Style the button */
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Style the dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1;
-}
-
-/* Show the dropdown content when the button is clicked */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Style the links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Add a background color to the dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.popup-1{
-  height: 15rem;
-  width: 20rem;
-  background-color: rgb(228, 248, 248);
-  border-radius: 1rem;
-  position: absolute;
-  top: -15%;
-  left: 40%;
-  transform: translate(-50%,-50%)scale(0.1);
-  text-align: center;
-  padding: 0 5rem 5 rem;
-  color: black;
-  top: 50%;
-  visibility: hidden;
-  transform: translate(-50%,-50%)scale(0.1);
-
-}
-
-.open-popup-1{
-  top: 20%;
-  visibility: visible;
-  transform: translate(-50%,-50%)scale(1);
-  transition: transform 0.4s ,top 0.4s;
-
-}
-
-.popup-2{
-  height: 30rem;
-  width: 40rem;
-  background-color: rgb(228, 248, 248);
-  border-radius: 1rem;
-  position: absolute;
-  top: -15%;
-  left: 40%;
-  transform: translate(-50%,-50%)scale(0.1);
-  text-align: center;
-  padding: 0 5rem 5 rem;
-  color: black;
-  top: 50%;
-  visibility: hidden;
-  transform: translate(-50%,-50%)scale(0.1);
-
-}
-
-.open-popup-2{top: 50%;
-  visibility: visible;
-  transform: translate(-50%,-50%)scale(1);
-  transition: transform 0.4s ,top 0.4s;
-
-
-}
-
-</style>
-</head>
-<body>
-    {% if user.is_authenticated %}
-
-    <div class="site-mobile-menu">
-        <div class="site-mobile-menu-header">
-          <div class="site-mobile-menu-close mt-3">
-            <span class="icon-close2 js-menu-toggle"></span>
-          </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-      </div>
-      
-      <header class="site-navbar m-0 p-0" role="banner" style="top: 0rem;">
-  
-        <div class="container">
-          <div class="row align-items-center">
-            
-            <div class="col-11 col-xl-2">
-              <h1 class="mb-0 site-logo"><a href="{% url 'index' %}" class="text-white mb-0">Zoho Django</a></h1>
-            </div>
-            <div class="col-12 col-md-10 d-none d-xl-block">
-              <nav class="site-navigation position-relative text-right" role="navigation">
-  
-                <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                
-                  <li class="dropdown"><a  href="" >
-                    {% if pat.profile_pic %}
-                      <img src="{{ pat.profile_pic.url }}" class="rounded-circle" >
-                    {% else %}
-                      <img src="{% static 'images/default.png' %}"  class="rounded-circle" >
-                    {% endif %}
-
-                    {% if company.comapny_name %}
-                      <h3> <b><em >{{ company.company_name }}  </em></b></h3>
-                    {% else %}
-                      <h3 ><b><em > Add Company</em></b></h3>
-                    {% endif %}
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-left">
-                    <a class="dropdown-item" href="#"><i class="bx bx-user"></i><span>Profile</span></a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-tachometer"></i><span>Dashboard</span></a>
-                    <div class="dropdown-divider mb-0"></div>
-                    <a class="dropdown-item" href="{% url 'logout' %}"><i class="bx bx-power-off"></i><span>Logout</span></a>
-                </div>
-                  </li>
-                  <li><a href="{% url 'view_profile' %}"><i class="bx bx-user"></i><span>Profile</span></a></li>
-                  <li> <a href="{% url 'base' %}"><i class="bx bx-tachometer"></i><span>Dashboard</span></a></li>
-                  <li><a href="{% url 'logout' %}"><i class="bx bx-power-off"></i><span>Logout</span></a></li>
-
-                </ul>
-              </nav>
-            </div>
-  
-  
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-  
-            </div>
-  
-          </div>
-        </div>
-        
-      </header>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     
-      <section>
-       <div class=" row  ml-4 " style="top: 7rem;">
-        <div class="col-md-2 " style="border-right: 1px solid white;height: 100vh;position: fixed;">
-          <h6 class="mb-4"><a class="active  " href="{% url 'base' %}"><i class="fa fa-fw fa-home mr-2 "></i>home</a> </h6>
-          <h6 class="mb-4"><a class="active  " href="{% url 'itemview' %}"><i class="fa-solid fa-sitemap mr-3 "></i>Items</a> <a class="ml-5 active" href="{% url 'additem' %}"><i class="fa-solid fa-plus "></i></a></h6>
-          <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-building-columns mr-3"></i>Banking</a></h6>
-          <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-cart-shopping mr-3"></i>Sales</a></h6>
-          <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-basket-shopping mr-3"></i>Purchases</a></h6>
-          <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-business-time mr-3 "></i>Time Tracking</a></h6>
-           <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-user mr-3 "></i>Accountant</a></h6>
-           <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-calendar-week mr-3"></i>Reports</a></h6>
-           <h6 class="mb-4"><a class="active  " href="#"><i class="fa-solid fa-file mr-3"></i>Documents</a></h6>
-            <h6 class="mb43"><a class="active  " href="#"><i class="fa-solid fa-money-bill mr-3 "></i>Payroll</a></h6>
-        </div>
-       
-        <div class="col-md-10 " style="margin-left: 16rem; position: fixed;">
+<section >
+  <div class="row fixed-top  " style="top: 7rem; margin-left: 18rem;" >
+   
+    <div class="col-md-10 " style=" position: fixed;">
         <h3  class="mb-3  text-white  " style="font-size: 2rem;">New item</h3>     
     
         <form action="{% url 'add' %}" method="post">
             {% csrf_token %}
-
             <fieldset class="form-group">
                 <div class="row">
                   <label class="col-form-label col-sm-2 pt-0">Type <i class="fa fa-question-circle"></i></label>
                   <div class="col-sm-10 form-inline">
                     <div class="form-check ">
-                      <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="Goods" >
+                      <input required class="form-check-input" type="radio" name="type" id="gridRadios1" value="Goods" >
                       <label class="form-check-label" for="gridRadios1">
                         Goods
                       </label>
                     </div>
                     <div class="form-check ml-5">
-                      <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="Services">
+                      <input required class="form-check-input" type="radio" name="type" id="gridRadios2" value="Services">
                       <label class="form-check-label" for="gridRadios2">
                        Services
                       </label>
@@ -291,7 +33,7 @@ label{
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">Name *</label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
-                <input type="text" class="form-control" name="name">
+                <input required type="text" class="form-control" name="name">
               </div>
             </div>
             <div class="form-group row">
@@ -313,7 +55,7 @@ label{
             <section>
                 <div class="row">
                         <div class="col-md-6">
-                            <input type="checkbox" name="selling" checked> <label >selling  information</label>
+                            <input  type="checkbox" name="selling" checked> <label >selling  information</label>
                             <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Selling price *</label>
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
@@ -321,7 +63,7 @@ label{
                                         <div class="input-group-prepend">
                                           <div class="input-group-text">INR</div>
                                         </div>
-                                        <input type="text" name="sel_price" class="form-control">
+                                        <input required type="text" name="sel_price" class="form-control">
                                       </div>
                                 </div>
                               </div>
@@ -329,11 +71,16 @@ label{
                                 <label  class="col-sm-2 col-form-label">Account *</label>
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
                                     <select name="sel_acc" class="form-control">
-                                        {% for s in sale %}
-                                        <option value="{{s.id}}">{{s.Account_name}}</option>
-                                    
-                                        {% endfor %}
-                                       
+                                      {% for account_type in account_type %}
+                                      <option value="" disabled class="btn btn-dark text-white"><b>{{ account_type }}</b></option>
+                                          {% for account in account %}
+                                              {% if account.Account_type == account_type %}
+                                                <option value="{{account.id}}">{{ account.Account_name }}</option>
+                                                  {% endif %}
+                                                   {% endfor %}
+                                                         
+                                                {% endfor %}
+
                                       </select>                                </div>
                                       <button type="button" onclick="openp()">Ad Acoount</button>
 
@@ -341,7 +88,7 @@ label{
                               <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Description </label>
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
-                                  <input  type="text" name="sel_desc" class="form-control" >
+                                  <input required  type="text" name="sel_desc" class="form-control" >
                                 </div>
                               </div>
                              
@@ -355,7 +102,7 @@ label{
                                         <div class="input-group-prepend">
                                           <div class="input-group-text">INR</div>
                                         </div>
-                                        <input type="text" class="form-control" name="cost_price" >
+                                        <input required type="text" class="form-control" name="cost_price" >
                                       </div>
                                 </div>
                               </div>
@@ -366,12 +113,18 @@ label{
 <script>
   
 </script>
+                          
+            <select name="cost_acc" class="form-control">               
+                   {% for account_type in account_types %}
+                     <option value="" disabled class="btn btn-dark text-white"><b>{{ account_type }}</b></option>
+                         {% for account in accounts %}
+                             {% if account.Account_type == account_type %}
+                               <option value="{{account.id}}">{{ account.Account_name }}</option>
+                                 {% endif %}
+                                  {% endfor %}
+                                        
+                               {% endfor %}
 
-                                    <select name="cost_acc" class="form-control">
-                                        {% for p in purchase %}
-                                        <option value="{{p.id}}">{{p.Account_name}}</option>
-                                        {% endfor %}
-                
                                     </select>  
                                    
 
@@ -403,16 +156,16 @@ label{
 
           <div class="popup" id="popup">
            <div style="margin-top: 2rem;" class="display-flex">
-            <h4  >Add Account</h4>
-            <h6 class="float-right" style="margin-right: 1rem; margin-top: -2rem;" onclick="closepopup()">X</h6>
+            <h4 class="text-dark" >Add Account</h4>
+            <h6 class="float-right text-dark" style="margin-right: 1rem; margin-top: -2rem;" onclick="closepopup()">X</h6>
            </div>
             
             <form style="margin-top: 3rem;" action="{% url 'add_account' %}" method="post">
               {% csrf_token %}
               <label class="text-dark" >Accout type</label> <br>
-              <input  type="text" name="acc_type" id=""> <br>
-              <label class="text-dark" >Accout Name</label> <br>
-              <input type="text" name="acc_name" id=""> <br>
+              <input required  type="text" name="acc_type" id=""> <br>
+              <label  class="text-dark" >Accout Name</label> <br>
+              <input required type="text" name="acc_name" id=""> <br>
               <label class="text-dark" >Accout Code</label> <br>
               <input type="text" name="acc_code" id=""> <br>
               <label class="text-dark" >Accout Description</label> <br>
@@ -437,14 +190,14 @@ label{
 
           <div class="popup-1" id="popup-1">
             <div style="margin-top: 2rem;" class="display-flex">
-             <h4  >Add Unit</h4>
-             <h6 class="float-right" style="margin-right: 1rem; margin-top: -2rem;" onclick="closepop()">X</h6>
+             <h4 class="text-dark" >Add Unit</h4>
+             <h6 class="float-right text-dark" style="margin-right: 1rem; margin-top: -2rem;" onclick="closepop()">X</h6>
             </div>
              
              <form style="margin-top: 3rem;" action="{% url 'add_unit' %}" method="post">
                {% csrf_token %}
                <label class="text-dark" >Unit</label> <br>
-               <input  type="text" name="unit_name" id=""> <br>
+               <input required  type="text" name="unit_name" id=""> <br>
               
                <br>
                <input type="submit"  class="mr-3 btn btn-success"  value="Save">
@@ -469,16 +222,16 @@ label{
 
            <div class="popup-2" id="popup-2">
             <div style="margin-top: 2rem;" class="display-flex">
-             <h4  >Add Unit</h4>
-             <h6 class="float-right" style="margin-right: 1rem; margin-top: -2rem;" onclick="closep()">X</h6>
+             <h4 class="text-dark" >Add SALES</h4>
+             <h6 class="float-right text-dark" style="margin-right: 1rem; margin-top: -2rem;" onclick="closep()">X</h6>
             </div>
              
             <form style="margin-top: 3rem;" action="{% url 'add_sales' %}" method="post">
               {% csrf_token %}
               <label class="text-dark" >Accout type</label> <br>
-              <input  type="text" name="acc_type" id=""> <br>
+              <input  required type="text" name="acc_type" id=""> <br>
               <label class="text-dark" >Accout Name</label> <br>
-              <input type="text" name="acc_name" id=""> <br>
+              <input required type="text" name="acc_name" id=""> <br>
               <label class="text-dark" >Accout Code</label> <br>
               <input type="text" name="acc_code" id=""> <br>
               <label class="text-dark" >Accout Description</label> <br>
@@ -503,22 +256,13 @@ label{
            </div>
 
     </div>
-        
-       </div>
-    
-      
-    </section>
-    
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-      
-    
-    {% endif %}
+  </div>
  
-</body>
-</html>
+</section>
 
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
+ 
+{% endblock %}

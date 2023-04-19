@@ -5,7 +5,7 @@ from django.contrib.auth.models import User,auth
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
-
+from django.db.models import Q
 
 
 
@@ -79,7 +79,7 @@ def base(request):
     context = {
                 'company' : company
             }
-    return render(request,'base.html',context)
+    return render(request,'loginhome.html',context)
 
 @login_required(login_url='login')
 def view_profile(request):
@@ -126,29 +126,49 @@ def edit_profile(request,pk):
             }
     return render(request,'edit_profile.html',context)
 
+@login_required(login_url='login')
 def itemview(request):
     viewitem=AddItem.objects.all()
     return render(request,'item_view.html',{'view':viewitem})
 
+
+@login_required(login_url='login')
 def additem(request):
     unit=Unit.objects.all()
     sale=Sales.objects.all()
     purchase=Purchase.objects.all()
-    return render(request,'additem.html',{'unit':unit,'sale':sale,'purchase':purchase})
+  
 
+    accounts = Purchase.objects.all()
+    account_types = set(Purchase.objects.values_list('Account_type', flat=True))
 
+    
+    account = Sales.objects.all()
+    account_type = set(Sales.objects.values_list('Account_type', flat=True))
+    
+    
+   
+
+    return render(request,'additem.html',{'unit':unit,'sale':sale,'purchase':purchase,
+               
+                            "account":account,"account_type":account_type,"accounts":accounts,"account_types":account_types,})
+
+@login_required(login_url='login')
 def add_account(request):
     if request.method=='POST':
         Account_type  =request.POST['acc_type']
         Account_name =request.POST['acc_name']
         Acount_code =request.POST['acc_code']
         Account_desc =request.POST['acc_desc']
-        
+       
         acc=Purchase(Account_type=Account_type,Account_name=Account_name,Acount_code=Acount_code,Account_desc=Account_desc)
-        acc.save()
-        return redirect('additem')
+        acc.save()                 
+        return redirect("additem")
+        
     return render(request,'additem.html')
 
+
+@login_required(login_url='login')
 def add(request):
     if request.user.is_authenticated:
         if request.method=='POST':
@@ -162,7 +182,8 @@ def add(request):
             cost_acc=request.POST.get('cost_acc')      
             p_desc=request.POST.get('cost_desc')
             u=request.user.id
-            history="Created by" + str(u)
+            us=request.user
+            history="Created by" + str(us)
             user=User.objects.get(id=u)
             unit=Unit.objects.get(id=unit)
             sel=Sales.objects.get(id=sel_acc)
@@ -172,40 +193,55 @@ def add(request):
                             )
             ad_item.save()  
             
-
+            return redirect("itemview")
     return render(request,'additem.html')
 
+
+
+@login_required(login_url='login')
 def edititem(request,id):
     pedit=AddItem.objects.get(id=id)
     p=Purchase.objects.all()
     s=Sales.objects.all()
     u=Unit.objects.all()
-    return render(request,'edititem.html',{'e':pedit,'p':p,'s':s,'u':u})
 
+    accounts = Purchase.objects.all()
+    account_types = set(Purchase.objects.values_list('Account_type', flat=True))
+    print(accounts)
+    print(account_types)
+
+    
+    account = Sales.objects.all()
+    account_type = set(Sales.objects.values_list('Account_type', flat=True))
+    
+    return render(request,'edititem.html',{"account":account,"account_type":account_type,'e':pedit,'p':p,'s':s,'u':u,"accounts":accounts,"account_types":account_types})
+
+
+@login_required(login_url='login')
 def edit_db(request,id):
         if request.method=='POST':
             edit=AddItem.objects.get(id=id)
             edit.type=request.POST.get('type')
             edit.Name=request.POST['name']
             unit=request.POST['unit']
-            edit.sel_price=request.POST['sel_price']
+            edit.s_price=request.POST['sel_price']
             sel_acc=request.POST['sel_acc']
             edit.s_desc=request.POST['sel_desc']
-            edit.cost_price=request.POST['cost_price']
+            edit.p_price=request.POST['cost_price']
             cost_acc=request.POST['cost_acc']        
             edit.p_desc=request.POST['cost_desc']
             
             
             edit.unit=Unit.objects.get(id=unit)
-            edit.sel=Sales.objects.get(id=sel_acc)
-            edit.cost=Purchase.objects.get(id=cost_acc)
+            edit.sales=Sales.objects.get(id=sel_acc)
+            edit.purchase=Purchase.objects.get(id=cost_acc)
             edit.save()
             return redirect('itemview')
 
         return render(request,'edititem.html')
 
 
-
+@login_required(login_url='login')
 def detail(request,id):
     user_id=request.user
     items=AddItem.objects.all()
@@ -223,13 +259,16 @@ def detail(request,id):
     
     return render(request,'demo.html',context)
 
+
+@login_required(login_url='login')
 def Action(request,id):
     user=request.user.id
     user=User.objects.get(id=user)
     viewitem=AddItem.objects.all()
     event=AddItem.objects.get(id=id)
-    h=History.objects.get(id=id)
-    print(h.message)
+    
+
+    print(user)
     if request.method=='POST':
         action=request.POST['action']
         event.satus=action
@@ -238,30 +277,33 @@ def Action(request,id):
             History(user=user,message="Item marked as Active ",p=event).save()
         else:
             History(user=user,message="Item marked as inActive",p=event).save()
-    return render(request,'item_view.html',{'view':viewitem,'h':h})
+    return render(request,'item_view.html',{'view':viewitem})
 
+@login_required(login_url='login')
 def cleer(request,id):
     dl=AddItem.objects.get(id=id)
     dl.delete()
     return redirect('itemview')
 
+
+@login_required(login_url='login')
 def add_unit(request):
-    unit=Unit.objects.all()
     if request.method=='POST':
         unit_name=request.POST['unit_name']
         Unit(unit=unit_name).save()
+        return redirect('additem')
     return render(request,"additem.html")
 
 
-
+@login_required(login_url='login')
 def add_sales(request):
     if request.method=='POST':
         Account_type  =request.POST['acc_type']
         Account_name =request.POST['acc_name']
         Acount_code =request.POST['acc_code']
-        Account_desc =request.POST['acc_desc']
-        
+        Account_desc =request.POST['acc_desc']        
         acc=Sales(Account_type=Account_type,Account_name=Account_name,Acount_code=Acount_code,Account_desc=Account_desc)
         acc.save()
         return redirect('additem')
     return render(request,'additem.html')
+
