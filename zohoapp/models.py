@@ -45,6 +45,9 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.unit
+
+    
+    
     
 class AddItem(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -60,9 +63,12 @@ class AddItem(models.Model):
     s_price=models.CharField(max_length=255)
     p_price=models.TextField(max_length=255)
     satus=models.TextField(default='active')
+    interstate=models.CharField(max_length=255)
+    intrastate=models.CharField(max_length=255)
 
 class History(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     date=models.DateTimeField(auto_now=True)
     message=models.CharField(max_length=255)
     p=models.ForeignKey(AddItem,on_delete=models.CASCADE)
+

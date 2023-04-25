@@ -14,6 +14,7 @@ def index(request):
     return render(request,'index.html')
 
 def register(request):
+   
     if request.method=='POST':
 
         first_name=capfirst(request.POST['fname'])
@@ -74,7 +75,8 @@ def logout(request):
 
 @login_required(login_url='login')
 def base(request):
-
+   
+    
     company = company_details.objects.get(user = request.user)
     context = {
                 'company' : company
@@ -137,7 +139,15 @@ def additem(request):
     unit=Unit.objects.all()
     sale=Sales.objects.all()
     purchase=Purchase.objects.all()
+    
+    
+
+
   
+    
+        
+
+
 
     accounts = Purchase.objects.all()
     account_types = set(Purchase.objects.values_list('Account_type', flat=True))
@@ -147,11 +157,12 @@ def additem(request):
     account_type = set(Sales.objects.values_list('Account_type', flat=True))
     
     
-   
 
     return render(request,'additem.html',{'unit':unit,'sale':sale,'purchase':purchase,
                
-                            "account":account,"account_type":account_type,"accounts":accounts,"account_types":account_types,})
+                            "account":account,"account_type":account_type,"accounts":accounts,"account_types":account_types,
+                            
+                            })
 
 @login_required(login_url='login')
 def add_account(request):
@@ -172,27 +183,56 @@ def add_account(request):
 def add(request):
     if request.user.is_authenticated:
         if request.method=='POST':
-            type=request.POST.get('type')
-            name=request.POST['name']
-            unit=request.POST['unit']
-            sel_price=request.POST.get('sel_price')
-            sel_acc=request.POST.get('sel_acc')
-            s_desc=request.POST.get('sel_desc')
-            cost_price=request.POST.get('cost_price')
-            cost_acc=request.POST.get('cost_acc')      
-            p_desc=request.POST.get('cost_desc')
-            u=request.user.id
-            us=request.user
-            history="Created by" + str(us)
-            user=User.objects.get(id=u)
-            unit=Unit.objects.get(id=unit)
-            sel=Sales.objects.get(id=sel_acc)
-            cost=Purchase.objects.get(id=cost_acc)
-            ad_item=AddItem(type=type,Name=name,p_desc=p_desc,s_desc=s_desc,s_price=sel_price,p_price=cost_price,unit=unit,
-                        sales=sel,purchase=cost,user=user,creat=history
-                            )
-            ad_item.save()  
-            
+            radio=request.POST.get('radio')
+            if radio=='tax':
+    
+                
+                inter=request.POST['inter']
+                intra=request.POST['intra']
+                type=request.POST.get('type')
+                name=request.POST['name']
+                unit=request.POST['unit']
+                sel_price=request.POST.get('sel_price')
+                sel_acc=request.POST.get('sel_acc')
+                s_desc=request.POST.get('sel_desc')
+                cost_price=request.POST.get('cost_price')
+                cost_acc=request.POST.get('cost_acc')      
+                p_desc=request.POST.get('cost_desc')
+                u=request.user.id
+                us=request.user
+                history="Created by" + str(us)
+                user=User.objects.get(id=u)
+                unit=Unit.objects.get(id=unit)
+                sel=Sales.objects.get(id=sel_acc)
+                cost=Purchase.objects.get(id=cost_acc)
+                ad_item=AddItem(type=type,Name=name,p_desc=p_desc,s_desc=s_desc,s_price=sel_price,p_price=cost_price,unit=unit,
+                            sales=sel,purchase=cost,user=user,creat=history,interstate=inter,intrastate=intra
+                                )
+                
+            else:
+                                                  
+                type=request.POST.get('type')
+                name=request.POST['name']
+                unit=request.POST['unit']
+                sel_price=request.POST.get('sel_price')
+                sel_acc=request.POST.get('sel_acc')
+                s_desc=request.POST.get('sel_desc')
+                cost_price=request.POST.get('cost_price')
+                cost_acc=request.POST.get('cost_acc')      
+                p_desc=request.POST.get('cost_desc')
+                u=request.user.id
+                us=request.user
+                history="Created by" + str(us)
+                user=User.objects.get(id=u)
+                unit=Unit.objects.get(id=unit)
+                sel=Sales.objects.get(id=sel_acc)
+                cost=Purchase.objects.get(id=cost_acc)
+                ad_item=AddItem(type=type,Name=name,p_desc=p_desc,s_desc=s_desc,s_price=sel_price,p_price=cost_price,unit=unit,
+                            sales=sel,purchase=cost,user=user,creat=history,interstate='none',intrastate='none'
+                                )
+                ad_item.save()
+            ad_item.save()
+           
             return redirect("itemview")
     return render(request,'additem.html')
 
@@ -207,8 +247,7 @@ def edititem(request,id):
 
     accounts = Purchase.objects.all()
     account_types = set(Purchase.objects.values_list('Account_type', flat=True))
-    print(accounts)
-    print(account_types)
+    
 
     
     account = Sales.objects.all()
