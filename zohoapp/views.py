@@ -346,3 +346,8 @@ def add_sales(request):
         return redirect('additem')
     return render(request,'additem.html')
 
+
+@login_required(login_url='login')
+def add_vendor(request):
+    return render(request,'create_vendor.html')
+

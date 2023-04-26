@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<!-- class="row fixed-top " -->
+<!-- style=" position: fixed;" -->
+
+<!-- <section > -->
+    <div class="fixed-top" style="top: 7rem; margin-left: 18rem;" >
+     
+      <!-- <div class="col-md-10" > -->
+          <div style="height: 600px;overflow-y: scroll;">
+             <h3  class="mb-3  text-white " style="font-size: 2rem;">New Vendor</h3>     
+      
+             <form action="" method="post">
+              {% csrf_token %}
+              
+              
+            <div class=" form-group row">
+                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label">
+                    <label >Primary Contact</label>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <select id="select1"  name="unit" class="form-control ">
+                      
+                     
+                        <option  value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+   
+                        
+                       </select> 
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <input required type="text" class="form-control" id="fname" name="firstname" placeholder="first name">
+
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <input required type="text" class="form-control" id="lname" name="lastname" placeholder="last name">
+
+                </div>
+            </div>
+
+               <div class="form-group row mt-4">
+                   <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Company Name</label></div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <input required type="text" class="form-control" name="company_name">      
+                    </div>
+
+
+                </div>
+                <div class="form-group row mt-4">
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Display Name</label></div>
+                     <div class="col-sm-12 col-md-6 col-lg-6">
+                        
+                            <select  name="v_display_name" class="form-control" onclick="vendor_display()">
+                            <option id="select2"></option>
+                                
+                            </select> 
+          
+                                
+                              
+                     </div>
+                     <script type="text/javascript">
+                        function vendor_display()
+                        {
+                            var x=document.getElementById("select1").value;
+                            var y=document.getElementById("fname").value;
+                            var z=document.getElementById("lname").value;
+
+                            document.getElementById("select2").innerHTML=x+" "+y+" "+z
+                           
+                            
+                        }
+                     </script>
+ 
+ 
+                 </div>
+
+                 <div class="form-group row mt-4">
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Email</label></div>
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                         <input required type="email" class="form-control" name="email">      
+                     </div>
+ 
+ 
+                 </div>
+                 <div class="form-group row mt-4">
+                    <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
+                     <div class="col-sm-12 col-md-3 col-lg-3">
+                         <input required type="number" class="form-control" name="w_phone" placeholder="work phone">      
+                     </div>
+                     <div class=" col-sm-12 col-md-3 col-lg-3">
+                        <input required type="number" class="form-control" name="m_phone" placeholder="mobile number">      
+                    </div>
+ 
+ 
+                 </div>
+                 <div class="form-group row mt-4">
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Skype name/Number</label></div>
+                   
+                     <div class="col-sm-12 col-md-6 col-lg-6">
+                       <input required type="text" class="form-control" name="skype">      
+                     </div>
+                     <div  style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                        <a>More Details</a>
+
+                     </div>
+ 
+ 
+                 </div>
+
+                 
+
+                 
+                 
+
+
+
+
+                 
+
+                
+                 
+
+
+                 
+
+              </form>
+          </div>
+    <!-- </div> -->
+    </div>
+     
+    <!-- <section> -->
+
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script   src="https://code.jquery.com/jquery-1.12.1.js"   integrity="sha256-VuhDpmsr9xiKwvTIHfYWCIQ84US9WqZsLfR4P7qF6O8="   crossorigin="anonymous"></script>
+  -->
+
+
+
+
+
+{% endblock %}
