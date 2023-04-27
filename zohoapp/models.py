@@ -72,3 +72,29 @@ class History(models.Model):
     message=models.CharField(max_length=255)
     p=models.ForeignKey(AddItem,on_delete=models.CASCADE)
 
+class vendor(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    salutation=models.CharField(max_length=25)
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50)
+    company_name=models.CharField(max_length=150,null=True)
+    vendor_display_name=models.CharField(max_length=150,null=True)
+    vendor_email=models.CharField(max_length=250,null=True)
+    vendor_wphone=models.CharField(max_length=50,null=True)
+    vendor_mphone=models.CharField(max_length=50,null=True)
+    skype_number=models.CharField(max_length=50,null=True)
+    designation=models.CharField(max_length=50,null=True)
+    department=models.CharField(max_length=50,null=True)
+    website=models.CharField(max_length=250,null=True)
+    gst_treatment=models.CharField(max_length=100,null=True)
+    gst_number=models.CharField(max_length=50,null=True)
+    pan_number=models.CharField(max_length=50,null=True)
+    source_supply=models.CharField(max_length=100,null=True)
+    currency=models.CharField(max_length=50,null=True)
+    opening_bal=models.CharField(max_length=100,null=True)
+    payment_terms=models.CharField(max_length=100,null=True)
+
+
+
+
+

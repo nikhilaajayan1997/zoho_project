@@ -21,6 +21,8 @@ urlpatterns = [
     path('add_unit',views.add_unit,name='add_unit'),
     path('sales',views.add_sales,name='add_sales'),
 
+    path('vendor/',views.vendor,name='vendor'),
     path('add_vendor/',views.add_vendor,name='add_vendor'),
+    path('sample/',views.sample,name="sample"),
     
 ]

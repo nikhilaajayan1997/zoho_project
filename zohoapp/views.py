@@ -348,6 +348,57 @@ def add_sales(request):
 
 
 @login_required(login_url='login')
-def add_vendor(request):
+def vendor(request):
     return render(request,'create_vendor.html')
+
+
+
+@login_required(login_url='login')
+def add_vendor(request):
+    print("helliooooo")
+    if request.method=="post":
+        salutation=request.POST['salutation']
+        first_name=request.POST['first_name']
+        last_name=request.POST['last_name']
+        company_name=request.POST['company_name']
+        vendor_display_name=request.POST['v_display_name']
+        vendor_email=request.POST['vendor_email']
+        vendor_wphone=request.POST['w_phone']
+        vendor_mphone=request.POST['m_phone']
+        skype_number=request.POST['skype_number']
+        designation=request.POST['designation']
+        department=request.POST['department']
+        website=request.POST['website']
+        gst_treatment=request.POST['gst']
+        # gst_number=request.POST['gst_number']
+        # pan_number=request.POST['pan_number']
+        source_supply=request.POST['source_supply']
+        currency=request.POST['currency']
+        opening_bal=request.POST['opening_bal']
+        payment_terms=request.POST['payment_terms']
+        gst_number=12345678901234
+        pan_number=123
+
+        print("helliooooo")
+
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+        vendor_data=vendor(user=udata,salutation=salutation,first_name=first_name,last_name=last_name,
+        company_name=company_name,vendor_display_name=vendor_display_name,vendor_email=vendor_email,
+        vendor_wphone=vendor_wphone,vendor_mphone=vendor_mphone,skype_number=skype_number,
+        designation=designation,department=department,website=website,gst_treatment=gst_treatment,
+        source_supply=source_supply,gst_number=gst_number,pan_number=pan_number,currency=currency,opening_bal=opening_bal,
+        payment_terms=payment_terms)
+        vendor_data.save()
+        return redirect('base')
+
+def sample(request):
+    print("hello")
+    return redirect('base')
+
+
+
+
+
+
 
