@@ -355,46 +355,68 @@ def vendor(request):
 
 @login_required(login_url='login')
 def add_vendor(request):
-    print("helliooooo")
-    if request.method=="post":
-        salutation=request.POST['salutation']
-        first_name=request.POST['first_name']
-        last_name=request.POST['last_name']
-        company_name=request.POST['company_name']
-        vendor_display_name=request.POST['v_display_name']
-        vendor_email=request.POST['vendor_email']
-        vendor_wphone=request.POST['w_phone']
-        vendor_mphone=request.POST['m_phone']
-        skype_number=request.POST['skype_number']
-        designation=request.POST['designation']
-        department=request.POST['department']
-        website=request.POST['website']
-        gst_treatment=request.POST['gst']
-        # gst_number=request.POST['gst_number']
-        # pan_number=request.POST['pan_number']
-        source_supply=request.POST['source_supply']
-        currency=request.POST['currency']
-        opening_bal=request.POST['opening_bal']
-        payment_terms=request.POST['payment_terms']
-        gst_number=12345678901234
-        pan_number=123
+    if request.method=="POST":
+        vendor_data=vendor_table()
+        vendor_data.salutation=request.POST['salutation']
+        vendor_data.first_name=request.POST['first_name']
+        vendor_data.last_name=request.POST['last_name']
+        vendor_data.company_name=request.POST['company_name']
+        vendor_data.vendor_display_name=request.POST['v_display_name']
+        vendor_data.vendor_email=request.POST['vendor_email']
+        vendor_data.vendor_wphone=request.POST['w_phone']
+        vendor_data.vendor_mphone=request.POST['m_phone']
+        vendor_data.skype_number=request.POST['skype_number']
+        vendor_data.designation=request.POST['designation']
+        vendor_data.department=request.POST['department']
+        vendor_data.website=request.POST['website']
+        vendor_data.website=request.POST['gst']
 
-        print("helliooooo")
+        x=request.POST['gst']
+        if x=="Unregistered Business-not Registered under GST":
+            vendor_data.pan_number=request.POST['pan_number']
+            vendor_data.gst_number="null"
+        else:
+            vendor_data.gst_number=request.POST['gst_number']
+            vendor_data.pan_number="null"
+
+        vendor_data.source_supply=request.POST['source_supply']
+        vendor_data.currency=request.POST['currency']
+        vendor_data.opening_bal=request.POST['opening_bal']
+        vendor_data.payment_terms=request.POST['payment_terms']
+        # pan_number=23456
 
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
-        vendor_data=vendor(user=udata,salutation=salutation,first_name=first_name,last_name=last_name,
-        company_name=company_name,vendor_display_name=vendor_display_name,vendor_email=vendor_email,
-        vendor_wphone=vendor_wphone,vendor_mphone=vendor_mphone,skype_number=skype_number,
-        designation=designation,department=department,website=website,gst_treatment=gst_treatment,
-        source_supply=source_supply,gst_number=gst_number,pan_number=pan_number,currency=currency,opening_bal=opening_bal,
-        payment_terms=payment_terms)
+        vendor_data.user=udata
+
+        
+
+
+
+        
+        # vendor_data=vendor(user=udata,salutation=salutation,first_name=first_name,last_name=last_name,
+        #     company_name=company_name,vendor_display_name=vendor_display_name,vendor_email=vendor_email,
+        #     vendor_wphone=vendor_wphone,vendor_mphone=vendor_mphone,skype_number=skype_number,designation=designation,
+        #     department=department,website=website,gst_treatment=gst_treatment,source_supply=source_supply,
+        #     gst_number=gst_number,pan_number=pan_number,currency=currency,opening_bal=opening_bal,
+        #     payment_terms=payment_terms)
+        
+        
+        
+        
         vendor_data.save()
         return redirect('base')
+        
 
 def sample(request):
     print("hello")
     return redirect('base')
+
+def view_vendor_list(request):
+    user_id=request.user.id
+    udata=User.objects.get(id=user_id)
+    data=vendor_table.objects.filter(user=udata)
+    return render(request,'vendor_list.html',{'data':data})
 
 
 

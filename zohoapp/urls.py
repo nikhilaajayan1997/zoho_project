@@ -24,5 +24,6 @@ urlpatterns = [
     path('vendor/',views.vendor,name='vendor'),
     path('add_vendor/',views.add_vendor,name='add_vendor'),
     path('sample/',views.sample,name="sample"),
+    path('view_vendor_list/',views.view_vendor_list,name='view_vendor_list'),
     
 ]
