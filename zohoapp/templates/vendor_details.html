@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+<style>
+    #over:hover{
+        /* border-bottom:3px solid white ; */
+        background-color: rgba(110, 110, 110, 0.616);
+    }
+</style>
+
+<div class="fixed-top" style="top: 7rem; margin-left: 18rem;">
+    <div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="row">
+                    <div class="col-md-2"><a class="text-white" style="font-size: 1.5rem;">All Vendors</a></div>
+                    <div class="col-md-2 form-inline" style="margin-left: 5rem;margin-top: -2rem;"><a style="color: #ccc;" class="btn btn-success mr-2" href="{% url 'vendor' %}"><i class="fa-solid fa-plus "></i>New</a>  </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <table class="table  text-white">
+                            
+                            <tbody>
+                              {% for v in vdata %}                    
+                              <tr>                     
+                                <td><i class="fa-sharp fa-light fa-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="{% url 'view_vendor_details' v.id %}">{{v.first_name}} {{v.last_name}}</a></td>                             
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-8 mt-3">
+                        <a class="text-white" style="font-size: 2rem;"><i class="fa-sharp fa-regular fa-circle-dot"></i>&nbsp;&nbsp;&nbsp;&nbsp;{{vdata2.first_name}} {{vdata2.last_name}}</a>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4  mt-3">
+                        <a style="color: #ccc;" class="btn btn-primary mr-2" href=""></i>Edit</a>
+                        <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href="" ></i><i class="fa-solid fa-paperclip"></i></a>
+                        <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href=""></i><i class="fa-sharp fa-solid fa-xmark"></i></a>
+                    </div>                   
+                </div>
+                <span class="input-group mb-1 pt-3" style="border-bottom: 1px solid rgb(37, 37, 37);border-top: 1px solid rgb(37, 37, 37);">
+                    <div id="over" class="toggle1"
+                      style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                      <button onclick="fieldset1_function()"  style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">Overview</button> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div id="over"  class="toggle2"
+                      style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                      <button onclick="fieldset2_function()" style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">Comments</button></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     
+                    <div class="toggle4"
+                      style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                      Contact persons</div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="toggle6"
+                      style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                      Reporting Tags</div>
+                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    
+                  </span> 
+
+                  <fieldset1 id="overview" class="Overview" >
+                    <div style="height: 400px;overflow-y: scroll;">
+                        <div class="form-group row mt-4">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Company Name</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.company_name }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Email Id</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.vendor_email }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Phone Number</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.vendor_wphone }} , {{ vdata2.vendor_mphone }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Designation</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.designation }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Department</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.department }}</label>      
+                             </div>   
+                        </div>                       
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">GST Treatment</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.gst_treatment }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">GST/PAN Number</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                {% if vdata2.gst_number == "null" %}
+                                <label>{{ vdata2.pan_number }}</label> 
+                                {% else %}   
+                                <label>{{ vdata2.gst_number }}</label> 
+                                {% endif %}                
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Payment Terms</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.payment_terms }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Source of supply</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label>{{ vdata2.source_supply }}</label>      
+                             </div>   
+                        </div>
+                    </div>
+                    <br><br><br> <br><br>          
+                  </fieldset1> 
+
+                  <fieldset2 id="comments" style="display: none;">
+                    <div class="form-group row mt-4">
+                        <!-- <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Website</label></div> -->
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                             <textarea name="comment" id="" cols="70" rows="5"></textarea>
+                             <label>(For Internal Use)</label>  
+                        </div>
+                    </div> 
+                    <div class="form-group row mt-4">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                               <a href="" class="btn btn-primary form-control">Add Comment</a>    
+                        </div>
+                    </div>                   
+                  </fieldset2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+
+    function fieldset1_function(){
+        document.getElementById("overview").style.display="block";
+        document.getElementById("comments").style.display="none";
+
+    }
+    function fieldset2_function(){
+        document.getElementById("overview").style.display="none";
+        document.getElementById("comments").style.display="block";
+
+    }
+      
+      
+</script>
+
+
+
+
+{% endblock %}

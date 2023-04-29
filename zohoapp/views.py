@@ -369,7 +369,7 @@ def add_vendor(request):
         vendor_data.designation=request.POST['designation']
         vendor_data.department=request.POST['department']
         vendor_data.website=request.POST['website']
-        vendor_data.website=request.POST['gst']
+        vendor_data.gst_treatment=request.POST['gst']
 
         x=request.POST['gst']
         if x=="Unregistered Business-not Registered under GST":
@@ -417,6 +417,14 @@ def view_vendor_list(request):
     udata=User.objects.get(id=user_id)
     data=vendor_table.objects.filter(user=udata)
     return render(request,'vendor_list.html',{'data':data})
+
+def view_vendor_details(request,pk):
+    user_id=request.user.id
+    udata=User.objects.get(id=user_id)
+    vdata1=vendor_table.objects.filter(user=udata)
+    vdata2=vendor_table.objects.get(id=pk)
+    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2})
+
 
 
 

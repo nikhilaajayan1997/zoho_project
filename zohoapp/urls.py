@@ -25,5 +25,6 @@ urlpatterns = [
     path('add_vendor/',views.add_vendor,name='add_vendor'),
     path('sample/',views.sample,name="sample"),
     path('view_vendor_list/',views.view_vendor_list,name='view_vendor_list'),
+    path('view_vendor_details/<int:pk>',views.view_vendor_details,name='view_vendor_details'),
     
 ]

@@ -28,7 +28,7 @@
                       <tr>
              
                        <!-- <td onclick="location.href ='{% url 'detail' v.id %}' " > {{v.Name}}</td> -->
-                        <td><a href="">{{v.first_name}} {{v.last_name}}</a></td>
+                        <td><a href="{% url 'view_vendor_details' v.id %}">{{v.first_name}} {{v.last_name}}</a></td>
                         <td>{{v.company_name}}</td>
                         <td>{{v.vendor_email}}</td>
                         <td>{{v.vendor_wphone}}</td>
