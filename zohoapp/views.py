@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.utils.text import capfirst
 from django.contrib.auth.models import User,auth
 from .models import *
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.db.models import Q
@@ -423,7 +425,51 @@ def view_vendor_details(request,pk):
     udata=User.objects.get(id=user_id)
     vdata1=vendor_table.objects.filter(user=udata)
     vdata2=vendor_table.objects.get(id=pk)
-    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2})
+    mdata=mail_table.objects.filter(vendor=vdata2)
+    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata})
+
+def add_comment(request,pk):
+    if request.method=='POST':
+        comment=request.POST['comment']
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+        vdata2=vendor_table.objects.get(id=pk)
+        comments=comments_table(user=udata,vendor=vdata2,comment=comment)
+        comments.save()
+        return redirect("view_vendor_list")
+
+def sendmail(request,pk):
+    if request.method=='POST':
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+        vdata2=vendor_table.objects.get(id=pk)
+        mail_from=settings.EMAIL_HOST_USER
+        mail_to=request.POST['email']
+        subject=request.POST['subject']
+        content=request.POST['content']
+        mail_data=mail_table(user=udata,vendor=vdata2,mail_from=mail_from,mail_to=mail_to,subject=subject,content=content)
+        mail_data.save()
+
+        subject = request.POST['subject']
+        message = request.POST['content']
+        recipient = request.POST['email']     #  recipient =request.POST["inputTagName"]
+        send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient])
+
+        return redirect("view_vendor_list")
+
+# def senditem(request,pk):
+#     vdata=vendor_table.objects.get(id=pk)
+#     mdata=mail_table.objects.filter(vendor=vdata)
+#     return render(request,'sentitem.html',{'mdata':mdata})
+
+def edit_vendor(request,pk):
+    return render(request,'edit_vendor.html')
+    
+
+
+
+    
+        
 
 
 

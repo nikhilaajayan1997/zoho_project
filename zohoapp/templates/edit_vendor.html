@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="fixed-top" style="top: 7rem; margin-left: 18rem;" >
+     
+    <div style="height: 600px;overflow-y: scroll;">
+       <h3  class="mb-3  text-white " style="font-size: 2rem;">New Vendor</h3>     
+
+      <form  method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        
+        <div class=" form-group row">
+          <div class="col-sm-12 col-md-3 col-lg-3 col-form-label">
+              <label >Primary Contact</label>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3">
+              <select id="select1"  name="salutation" class="form-control ">
+                
+               
+                  <option  value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+
+                  
+                 </select> 
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3">
+              <input  type="text" class="form-control" id="fname" name="first_name" placeholder="first name">
+
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3">
+              <input type="text" class="form-control" id="lname" name="last_name" placeholder="last name">
+
+          </div>
+      </div>
+
+         <div class="form-group row mt-4">
+             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Company Name</label></div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                  <input  type="text" class="form-control" name="company_name">      
+              </div>
+
+
+          </div>
+          <div class="form-group row mt-4">
+              <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Display Name</label></div>
+               <div class="col-sm-12 col-md-6 col-lg-6">
+                  
+                      <select  name="v_display_name" class="form-control" onclick="vendor_display()">
+                      <option id="select2"></option>
+                          
+                      </select> 
+    
+                          
+                        
+               </div>
+               <script type="text/javascript">
+                  function vendor_display()
+                  {
+                      var x=document.getElementById("select1").value;
+                      var y=document.getElementById("fname").value;
+                      var z=document.getElementById("lname").value;
+
+                      document.getElementById("select2").innerHTML=x+" "+y+" "+z
+                     
+                      
+                  }
+               </script>
+
+
+           </div>
+
+           <div class="form-group row mt-4">
+              <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Email</label></div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                   <input  type="email" class="form-control" name="vendor_email">      
+               </div>
+
+
+           </div>
+
+           <div class="form-group row mt-4">
+              <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
+               <div class="col-sm-12 col-md-3 col-lg-3">
+                   <input  type="number" class="form-control" name="w_phone" placeholder="work phone">      
+               </div>
+               <div class=" col-sm-12 col-md-3 col-lg-3">
+                  <input  type="number" class="form-control" name="m_phone" placeholder="mobile number">      
+              </div>
+              
+
+
+           </div>
+           
+
+           <fieldset1 class="more details">
+
+
+              <div class="form-group row mt-4">
+                  <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Skype name/Number</label></div>
+                 
+                   <div class="col-sm-12 col-md-6 col-lg-6">
+                     <input  type="text" class="form-control" name="skype_number">      
+                   </div>
+                   
+
+
+               </div>
+
+
+              <div class="form-group row mt-4">
+                  <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Designation</label></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                       <input  type="text" class="form-control" name="designation">      
+                   </div>
+
+
+              </div>
+              <div class="form-group row mt-4">
+                  <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Department</label></div>
+                  <div class="col-sm-12 col-md-6 col-lg-6">
+                       <input  type="text" class="form-control" name="department">      
+                   </div>
+
+
+               </div>
+
+           </fieldset1>
+
+          <div class="form-group row mt-4">
+              <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Website</label></div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                   <input type="text" class="form-control" name="website">      
+              </div>
+          </div>
+
+
+
+          <!-- <span class="input-group mb-3 mt-3">
+              <div class="toggle2"
+                style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                <a href="" style="color: rgb(230, 171, 45);">Other Details </a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="toggle3"
+                style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                Address</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="toggle4"
+                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                Contact persons</div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="toggle6"
+                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                Reporting Tags</div>
+              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+              <div class="toggle7"
+                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                Remarks</div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span><br><br><br> -->
+
+            <fieldset2 class="other details">
+
+              
+
+                <div class="form-group row mt-4">
+                  <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> GST Treatment*</label>
+                   
+                  <div class=" col-sm-12 col-md-3 col-lg-3">
+                      <select name="gst" id="GSTT" class="form-control" onclick="gstPan_function()">
+                          <option value="Select a Gst Treatment" selected>Select a Gst Treatment</option>
+                          <option value="Registered Business-Regular Business that is registered under GST">Registered Business-Regular Business that is registered under GST</option>
+                          <option value="Registered Business-Composition Business that is registered under the Composition scheme in GST">Registered Business-Composition Business that is registered under the Composition scheme
+                            in GST</option>
+                          <option value="Unregistered Business-not Registered under GST">Unregistered Business-not Registered under GST</option>
+                          <option value="Overseas- Persons with who you do import or exports of supplies outside india">Overseas- Persons with who you do import or exports of supplies outside india</option>
+                          <option value="Special Economic Zone">Special Economic Zone</option>
+                      </select><br>
+                  </div>
+
+
+              </div>
+              <fieldset3 id="gst" style="display: none;">
+                  <div class="row mt-4">
+                      <label class="col-sm-12 col-md-3 col-lg-3 col-form-label"  style="color:rgb(214, 75, 75) ;"> GSTIN/UIN*</label>
+                       
+                      <div class=" col-sm-12 col-md-3 col-lg-3">
+                          <input type="number" class="form-control" name="gst_number" id="gst_input" onmouseout="gst_check()"> 
+                          <label id="gst_label"></label>     
+  
+                      </div>
+   
+   
+                  </div>
+
+              </fieldset3>
+
+              <fieldset4 id="pan" style="display: none;">
+                  <div class=" row mt-4">
+                      <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > PAN</label>
+                       
+                      <div class=" col-sm-12 col-md-3 col-lg-3">
+                          <input type="text" class="form-control" id="pan_input" name="pan_number">      
+  
+                      </div>
+   
+   
+                  </div>
+
+              </fieldset4>
+
+
+
+              
+
+          <div class="form-group row mt-4">
+              <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> Source Of Supply*</label>
+               
+              <div class=" col-sm-12 col-md-3 col-lg-3">
+                  <select name="source_supply" id="PLACE" class="form-control">
+                      <option value="value" selected></option>
+                      <option value="Andaman And Nicobar Islands">[AN]-Andaman And Nicobar Islands</option> <option value="volvo">[AD]-Andhra Pradesh</option>
+                      <option value="volvo">[AR]-Arunachal Pradesh	</option> <option value="volvo">[AS]-Assam</option>
+                      <option value="volvo">[BR]-Bihar</option> <option value="volvo">[CH]-	Chandhigarh</option><option value="volvo">[CG]-	Chattisgarh</option>
+                      <option value="volvo">[DD]-	Daman Diu</option><option value="volvo">[DL]-	Delhi</option><option value="volvo">[GA]-Goa</option> <option value="volvo">[GJ]-Gujarat</option>
+                      <option value="volvo">[HR]-Haryana</option> <option value="volvo">[HP]-Himachal Pradesh</option>
+                      <option value="volvo">[JK]-	Jammu And Kashmir</option><option value="volvo">[JH]-Jharkand</option>
+                      <option value="volvo">[KA]-Karnataka</option><option value="volvo">[KL]-Kerala</option>
+                      <option value="volvo">[LA]-Ladakh</option><option value="volvo">[LD]-Lakshadweep</option>
+                      <option value="volvo">[MP]-Madhyapradesh</option><option value="volvo">[MH]-Maharashtra</option>
+                      <option value="volvo">[MN]-Manipur</option>  <option value="volvo">[ML]-Meghalaya</option>
+                    <option value="volvo">[MZ]-Mizoram</option> <option value="volvo">[NL]-Nagaland</option> <option value="volvo">[NL]-Nagaland</option>
+                     <option value="volvo">[OD]-Odisha</option><option value="volvo">[PY]-Puducherry</option>
+                      <option value="audi">[PB]-Punjab.</option><option value="audi">[RL]-Rajasthan</option>
+                      <option value="audi">[SK]-Sikkim</option><option value="audi">[TN]-Tamilnadu</option>
+                      <option value="audi">[TS]-Telenghana</option><option value="audi">[TR]-Tripura</option><option value="audi">[UP]-Uttar Pradesh</option>
+                      <option value="audi">[UK]-Utharakhand</option><option value="audi">[WB]-West Bengal</option>
+                      <option value="volvo">[OT]-Other Territory</option>
+                    </select>
+              </div>
+
+
+          </div>
+          
+
+
+
+          <div class="form-group row mt-4">
+              <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> Currency*</label>
+               
+              <div class=" col-sm-12 col-md-3 col-lg-3">
+                  <select name="currency" id="PLACE" class="form-control">
+                      <option value="value" selected>Indian Rupee</option>
+                      <option value="volvo">Indian Rupee</option>
+            
+                  </select>
+              </div>
+
+
+          </div>
+
+
+          <div class="form-group row mt-4">
+              <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Opening Balance</label>
+               
+              <div class=" col-sm-12 col-md-3 col-lg-3">
+                  <input  type="number" class="form-control" name="opening_bal">      
+
+              </div>
+
+
+          </div>
+
+
+          <div class="form-group row mt-4">
+              <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Payment Terms</label>
+               
+              <div class=" col-sm-12 col-md-3 col-lg-3">
+                  <select name="payment_terms" id="PLACE" class="form-control">
+                      <option value="value" >NET 60</option>
+                      <option value="value" >NET 45</option>                          
+                      <option value="saab">NET 30</option>
+                      <option value="audi" selected>Due on Receipt</option>
+                      <option >
+                        </option>
+                  </select>
+
+              </div>
+
+
+          </div>
+
+          
+
+      </fieldset2>
+
+
+
+      
+          <div class="row mt-4">
+              <div class="col-sm-12 col-md-2 col-lg-2">
+                  <input type="submit" class="form-control btn-outline-warning" value="save">
+                  
+              </div>
+               
+              <div class=" col-sm-12 col-md-2 col-lg-2">
+                  <a href="" role="button" class="form-control btn btn-light" >Cancel</a>
+
+              </div>
+
+
+          </div>
+
+     
+      <br><br><br><br><br><br><br>
+
+
+           
+
+           
+           
+
+
+
+
+           
+
+          
+           
+
+
+           
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

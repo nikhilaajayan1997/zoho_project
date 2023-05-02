@@ -116,6 +116,22 @@ class vendor_table(models.Model):
     opening_bal=models.CharField(max_length=100)
     payment_terms=models.CharField(max_length=100)
 
+class comments_table(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    comment=models.TextField(max_length=500)
+
+class mail_table(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    mail_from=models.TextField(max_length=300)
+    mail_to=models.TextField(max_length=300)
+    subject=models.TextField(max_length=250)
+    content=models.TextField(max_length=900)
+    mail_date=models.DateTimeField(auto_now_add=True)
+
+
+
 
 
 
