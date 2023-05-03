@@ -29,5 +29,6 @@ urlpatterns = [
     path('add_comment/<int:pk>',views.add_comment,name='add_comment'),
     path('sendmail/<int:pk>',views.sendmail,name='sendmail'),
     path('edit_vendor/<int:pk>',views.edit_vendor,name='edit_vendor'),
+    path('edit_vendor_details/<int:pk>',views.edit_vendor_details,name='edit_vendor_details'),
     
 ]

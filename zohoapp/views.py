@@ -463,7 +463,44 @@ def sendmail(request,pk):
 #     return render(request,'sentitem.html',{'mdata':mdata})
 
 def edit_vendor(request,pk):
-    return render(request,'edit_vendor.html')
+    vdata=vendor_table.objects.get(id=pk)
+    return render(request,'edit_vendor.html',{'vdata':vdata})
+
+def edit_vendor_details(request,pk):
+    if request.method=='POST':
+        vdata=vendor_table.objects.get(id=pk)
+        vdata.salutation=request.POST['salutation']
+        vdata.first_name=request.POST['first_name']
+        vdata.last_name=request.POST['last_name']
+        vdata.company_name=request.POST['company_name']
+        vdata.vendor_display_name=request.POST['v_display_name']
+        vdata.vendor_email=request.POST['vendor_email']
+        vdata.vendor_wphone=request.POST['w_phone']
+        vdata.vendor_mphone=request.POST['m_phone']
+        vdata.skype_number=request.POST['skype_number']
+        vdata.designation=request.POST['designation']
+        vdata.department=request.POST['department']
+        vdata.website=request.POST['website']
+        vdata.gst_treatment=request.POST['gst']
+        if vdata.gst_treatment=="Unregistered Business-not Registered under GST":
+            vdata.pan_number=request.POST['pan_number']
+            vdata.gst_number="null"
+        else:
+            vdata.gst_number=request.POST['gst_number']
+            vdata.pan_number=request.POST['pan_number']
+
+        vdata.source_supply=request.POST['source_supply']
+        vdata.currency=request.POST['currency']
+        vdata.opening_bal=request.POST['opening_bal']
+        vdata.payment_terms=request.POST['payment_terms']
+
+        vdata.save()
+        return redirect("view_vendor_list")
+
+
+
+
+
     
 
 
@@ -478,3 +515,4 @@ def edit_vendor(request,pk):
 
 
 
+ 
