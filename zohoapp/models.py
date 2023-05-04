@@ -130,6 +130,14 @@ class mail_table(models.Model):
     content=models.TextField(max_length=900)
     mail_date=models.DateTimeField(auto_now_add=True)
 
+class doc_upload_table(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    title=models.TextField(max_length=200)
+    document=models.FileField(upload_to='doc/')
+
+
+
 
 
 

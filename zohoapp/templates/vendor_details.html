@@ -5,9 +5,10 @@
 
 <style>
     #over:hover{
-        /* border-bottom:3px solid white ; */
         background-color: rgba(110, 110, 110, 0.616);
+        font-weight:bold ;
     }
+    
 </style>
 
 <div class="fixed-top" style="top: 7rem; margin-left: 18rem;">
@@ -15,18 +16,21 @@
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-4">
                 <div class="row">
-                    <div class="col-md-2"><a class="text-white" style="font-size: 1.5rem;">All Vendors</a></div>
+                    <div class="col-md-2"><a class="text-white" style="font-size: 1.5rem;">All Vendors</a>
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="search for names" style="border-radius: 15px;">
+
+                    </div>
                     <div class="col-md-2 form-inline" style="margin-left: 5rem;margin-top: -2rem;"><a style="color: #ccc;" class="btn btn-success mr-2" href="{% url 'vendor' %}"><i class="fa-solid fa-plus "></i>New</a>  </div>
                 </div>
                 <div style="height: 500px;overflow-y: scroll;">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
-                            <table class="table  text-white">
+                            <table class="table  text-white" id="myTable">
                                 
                                 <tbody>
                                   {% for v in vdata %}                    
                                   <tr id="over">                     
-                                    <td><i class="fa-sharp fa-light fa-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href="{% url 'view_vendor_details' v.id %}">{{v.first_name}} {{v.last_name}}</a></td>                             
+                                    <td><i class="fa-sharp fa-light fa-circle"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a id="aover" href="{% url 'view_vendor_details' v.id %}" style="color: rgb(230, 171, 45);">{{v.first_name}} {{v.last_name}}</a></td>                             
                                   </tr>
                                   {% endfor %}
                                 </tbody>
@@ -42,30 +46,37 @@
                     </div>
                     <div class="col-sm-12 col-md-4 col-lg-4  mt-3">
                         <a style="color: #ccc;" class="btn btn-primary mr-2" href="{% url 'edit_vendor' vdata2.id %}"></i>Edit</a>
-                        <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href="" ></i><i class="fa-solid fa-paperclip"></i></a>
-                        <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href=""></i><i class="fa-sharp fa-solid fa-xmark"></i></a>
+                        <!-- <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href="" ></i><i class="fa-solid fa-paperclip"></i></a>
+                        <a style="color: #ccc;background-color: rgb(46, 46, 46);" class="btn  mr-2" href=""></i><i class="fa-sharp fa-solid fa-xmark"></i></a> -->
                     </div>                   
                 </div>
                 <span class="input-group mb-1 pt-3" style="border-bottom: 1px solid rgb(37, 37, 37);border-top: 1px solid rgb(37, 37, 37);">
                     <div id="over" class="toggle1"
                       style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      <button onclick="fieldset1_function()"  style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">Overview</button> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button onclick="fieldset1_function()"   class="btn btn-warning">Overview</button> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <div id="over"  class="toggle2"
                       style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      <button onclick="fieldset2_function()" style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">Comments</button></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button onclick="fieldset2_function()" class="btn btn-warning">Comments</button></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                     <div id="over" class="toggle4"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      <button onclick="fieldset3_function()"  style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">
+                      <button onclick="fieldset3_function()" class="btn btn-warning">
                       Mail</button></div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div id="over" class="toggle6"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      <button onclick="fieldset4_function()"  style="color: rgb(230, 171, 45);background-color: transparent;border: 1px solid rgb(109, 108, 108);">
+                      <button onclick="fieldset5_function()" class="btn btn-warning">
 
                       Attach</button></div>
                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    <div id="over"
+                      style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                      <!-- <button class="btn btn-warning">
+
+                      Delete</button> -->
+                      <a href="{% url 'delete_vendor' vdata2.id %}" class="btn btn-warning" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                    </div>
                     
                   </span> 
 
@@ -200,12 +211,7 @@
                         <div class="col-sm-12 col-md-4 col-lg-4">
                             <div class="fixed-top" style="top: 17.5rem; margin-left: 18rem;">
                                 <div style="height: 400px;overflow-y: scroll;">
-                                    <!-- <div class="row">
-                                        <div class="col-md-3"><a class="text-white" style="font-size: 2rem;">All Items</a></div>
-                                        <div class="col-md-6 form-inline" style="margin-left: 20rem;margin-top: -2rem;"><a style="color: #ccc;" class="btn btn-success mr-2" href="{% url 'vendor' %}"><i class="fa-solid fa-plus "></i>New</a>
-                                          
-                                        </div>
-                                    </div>    -->
+                                    
                                 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-4 col-lg-4"></div>
@@ -248,6 +254,86 @@
                     
                     
                   </fieldset4>
+
+                  <fieldset5 id="attach" style="display: none;">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <button style="color: #ccc;" class="btn btn-primary mr-2" onclick="fieldset6_function()">View</button> 
+
+                        </div>
+                    </div>
+                    <form action="{% url 'upload_document' vdata2.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="form-group row mt-4">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color: rgb(230, 171, 45);"><label style="color: rgb(230, 171, 45);">Title</label></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                 <input type="text" class="form-control" name="title" placeholder="Title">  
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color: rgb(230, 171, 45);"><label style="color: rgb(230, 171, 45);">Upload Document</label></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <input type="file" class="form-control" name="file">
+                            </div>
+                        </div>
+                        <div class="form-group row mt-4">
+                            <div class="col-sm-12 col-md-3 col-lg-3"></div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                   <input type="submit" class="btn btn-primary form-control" value="Upload">   
+                            </div>
+                        </div>
+                    </form>
+                   
+                  </fieldset5>
+
+                 <fieldset6 id="doc_list" style="display: none;">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <div class="fixed-top" style="top: 17.5rem; margin-left: 18rem;">
+                                <div style="height: 400px;overflow-y: scroll;">
+                                    
+                                
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+        
+                                        <div class="col-sm-12 col-md-8 col-lg-8">
+                                            <table class="table  text-white">
+                                                <thead>
+                                                  <tr>
+                                                    <th>Title</th>
+                                                    <th>Document</th>
+                                                    <th>Action</th>
+                                                    
+                                                  </tr>
+                                                </thead>
+                                                <tbody id="over">
+                                                  {% for v in ddata %}
+                                         
+                                                  <tr>
+                                         
+                                                    <td>{{v.title}}</td>
+                                                    <td>{{v.document.url}}</td>
+                                                    <td><a href="{% url 'download_doc' v.id %}" class="btn btn-outline-warning">download</a></td>
+                                    
+                                                   
+                                                  </tr>
+                                                  {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>                           
+                                    </div>                           
+                                </div>                           
+                            </div>
+                        </div>
+                    </div>
+                  </fieldset6>
             </div>
         </div>
     </div>
@@ -261,6 +347,10 @@
         document.getElementById("comments").style.display="none";
         document.getElementById("mail").style.display="none";
         document.getElementById("sentmail").style.display="none";
+        document.getElementById("attach").style.display="none";
+        document.getElementById("doc_list").style.display="none";
+
+
 
 
 
@@ -270,6 +360,8 @@
         document.getElementById("comments").style.display="block";
         document.getElementById("mail").style.display="none";
         document.getElementById("sentmail").style.display="none";
+        document.getElementById("doc_list").style.display="none";
+
 
 
 
@@ -279,6 +371,10 @@
         document.getElementById("comments").style.display="none";
         document.getElementById("mail").style.display="block";
         document.getElementById("sentmail").style.display="none";
+        document.getElementById("attach").style.display="none";
+        document.getElementById("doc_list").style.display="none";
+
+
 
 
 
@@ -288,9 +384,59 @@
         document.getElementById("comments").style.display="none";
         document.getElementById("mail").style.display="none";
         document.getElementById("sentmail").style.display="block";
+        document.getElementById("attach").style.display="none";
+        document.getElementById("doc_list").style.display="none";
 
 
 
+
+
+    }
+    function fieldset5_function(){
+        document.getElementById("overview").style.display="none";
+        document.getElementById("comments").style.display="none";
+        document.getElementById("mail").style.display="none";
+        document.getElementById("sentmail").style.display="none";
+        document.getElementById("attach").style.display="block";
+        document.getElementById("doc_list").style.display="none";
+
+
+
+
+
+    }
+    function fieldset6_function(){
+        document.getElementById("overview").style.display="none";
+        document.getElementById("comments").style.display="none";
+        document.getElementById("mail").style.display="none";
+        document.getElementById("sentmail").style.display="none";
+        document.getElementById("attach").style.display="none";
+        document.getElementById("doc_list").style.display="block";
+
+
+
+
+
+    }
+    function myFunction(){
+        var input,filter,table,tr,td,i,txtValue;
+        input=document.getElementById("myInput");
+        filter=input.value.toUpperCase();
+        table=document.getElementById("myTable");
+        tr=table.getElementsByTagName("tr");
+        for(i = 0; i < tr.length; i++)
+        {
+            td=tr[i].getElementsByTagName("td")[0];
+            if(td){
+                txtValue=td.textContent || td.innerText;
+                if(txtValue.toUpperCase().indexOf(filter) > -1){
+                    tr[i].style.display="";
+                }
+                else{
+                    tr[i].style.display="none";
+                }
+            }
+        }
     }
       
       

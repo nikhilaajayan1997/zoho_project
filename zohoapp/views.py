@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse
 from django.contrib import messages
 from django.utils.text import capfirst
 from django.contrib.auth.models import User,auth
@@ -426,7 +427,9 @@ def view_vendor_details(request,pk):
     vdata1=vendor_table.objects.filter(user=udata)
     vdata2=vendor_table.objects.get(id=pk)
     mdata=mail_table.objects.filter(vendor=vdata2)
-    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata})
+    ddata=doc_upload_table.objects.filter(user=udata,vendor=vdata2)
+
+    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata,'ddata':ddata})
 
 def add_comment(request,pk):
     if request.method=='POST':
@@ -496,6 +499,33 @@ def edit_vendor_details(request,pk):
 
         vdata.save()
         return redirect("view_vendor_list")
+
+def upload_document(request,pk):
+    if request.method=='POST':
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+        vdata=vendor_table.objects.get(id=pk)
+        title=request.POST['title']
+        document=request.FILES.get('file')
+        doc_data=doc_upload_table(user=udata,vendor=vdata,title=title,document=document)
+        doc_data.save()
+        return redirect("view_vendor_list")
+
+def download_doc(request,pk):
+    document=get_object_or_404(doc_upload_table,id=pk)
+    response=HttpResponse(document.document,content_type='application/pdf')
+    response['Content-Disposition']=f'attachment; filename="{document.document.name}"'
+    return response
+
+def cancel_vendor(request):
+    return redirect("view_vendor_list")
+
+
+
+
+    
+
+
 
 
 

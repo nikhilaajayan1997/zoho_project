@@ -30,5 +30,7 @@ urlpatterns = [
     path('sendmail/<int:pk>',views.sendmail,name='sendmail'),
     path('edit_vendor/<int:pk>',views.edit_vendor,name='edit_vendor'),
     path('edit_vendor_details/<int:pk>',views.edit_vendor_details,name='edit_vendor_details'),
-    
+    path('upload_document/<int:pk>',views.upload_document,name='upload_document'),
+    path('download_doc/<int:pk>',views.download_doc,name='download_doc'),
+    path('cancel_vendor/',views.cancel_vendor,name='cancel_vendor'),
 ]
