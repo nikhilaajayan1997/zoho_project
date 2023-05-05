@@ -33,4 +33,5 @@ urlpatterns = [
     path('upload_document/<int:pk>',views.upload_document,name='upload_document'),
     path('download_doc/<int:pk>',views.download_doc,name='download_doc'),
     path('cancel_vendor/',views.cancel_vendor,name='cancel_vendor'),
+    path('delete_vendor/<int:pk>',views.delete_vendor,name='delete_vendor'),
 ]

@@ -520,6 +520,30 @@ def download_doc(request,pk):
 def cancel_vendor(request):
     return redirect("view_vendor_list")
 
+def delete_vendor(request,pk):
+    if comments_table.objects.filter(vendor=pk).exists():
+        user2=comments_table.objects.get(vendor=pk)
+        user2.delete()
+    if mail_table.objects.filter(vendor=pk).exists():
+        user3=mail_table.objects.get(vendor=pk)
+        user3.delete()
+    if doc_upload_table.objects.filter(vendor=pk).exists():
+        user4=doc_upload_table.objects.get(vendor=pk)
+        user4.delete()
+    user1=vendor_table.objects.get(id=pk)
+    user1.delete()
+    return redirect("view_vendor_list")
+        
+    
+   
+
+
+
+
+    
+
+
+
 
 
 
