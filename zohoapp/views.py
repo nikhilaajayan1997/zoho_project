@@ -380,13 +380,12 @@ def add_vendor(request):
             vendor_data.gst_number="null"
         else:
             vendor_data.gst_number=request.POST['gst_number']
-            vendor_data.pan_number="null"
+            vendor_data.pan_number=request.POST['pan_number']
 
         vendor_data.source_supply=request.POST['source_supply']
         vendor_data.currency=request.POST['currency']
         vendor_data.opening_bal=request.POST['opening_bal']
         vendor_data.payment_terms=request.POST['payment_terms']
-        # pan_number=23456
 
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
@@ -522,13 +521,13 @@ def cancel_vendor(request):
 
 def delete_vendor(request,pk):
     if comments_table.objects.filter(vendor=pk).exists():
-        user2=comments_table.objects.get(vendor=pk)
+        user2=comments_table.objects.filter(vendor=pk)
         user2.delete()
     if mail_table.objects.filter(vendor=pk).exists():
-        user3=mail_table.objects.get(vendor=pk)
+        user3=mail_table.objects.filter(vendor=pk)
         user3.delete()
     if doc_upload_table.objects.filter(vendor=pk).exists():
-        user4=doc_upload_table.objects.get(vendor=pk)
+        user4=doc_upload_table.objects.filter(vendor=pk)
         user4.delete()
     user1=vendor_table.objects.get(id=pk)
     user1.delete()

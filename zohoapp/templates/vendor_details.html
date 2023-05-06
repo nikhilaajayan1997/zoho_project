@@ -17,14 +17,24 @@
             <div class="col-sm-12 col-md-4 col-lg-4">
                 <div class="row">
                     <div class="col-md-2"><a class="text-white" style="font-size: 1.5rem;">All Vendors</a>
-                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="search for names" style="border-radius: 15px;">
+                        <input type="text" id="myInput"  onkeyup="myFunction()" placeholder="search for names" style="border-radius: 15px;">                        
 
                     </div>
-                    <div class="col-md-2 form-inline" style="margin-left: 5rem;margin-top: -2rem;"><a style="color: #ccc;" class="btn btn-success mr-2" href="{% url 'vendor' %}"><i class="fa-solid fa-plus "></i>New</a>  </div>
+                    <div class="col-md-2 form-inline" style="margin-left: 9rem;margin-top: -2rem;">  
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a style="color: #ccc;" class="btn btn-success mr-2" href="{% url 'vendor' %}"><i class="fa-solid fa-plus "></i>New</a>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <button onclick="sortTable()" class="btn btn-primary" style="width: 4.5rem;">a-z</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div style="height: 500px;overflow-y: scroll;">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
+
                             <table class="table  text-white" id="myTable">
                                 
                                 <tbody>
@@ -82,62 +92,108 @@
 
                   <fieldset1 id="overview" class="Overview" >
                     <div style="height: 400px;overflow-y: scroll;">
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Company Name</label></div>
+                            <div class="form-group row mt-4">
+                                <div class="col-sm-12 col-md-2 col-lg-2"></div>
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color:rgb(214, 75, 75) ;font-weight: bold;">Company Name*</label></div>
+                                 <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                    <label style="font-weight: bold;">{{ vdata2.company_name }}</label>      
+                                 </div>   
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color:rgb(214, 75, 75) ;font-weight: bold;">GST Treatment*</label></div>
+                                 <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                    <label style="font-weight: bold;">{{ vdata2.gst_treatment }}</label>      
+                                 </div>   
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color:rgb(214, 75, 75) ;font-weight: bold;">GST-PAN Number*</label></div>
+                                 <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                    {% if vdata2.gst_number == "null" %}
+                                    <label style="font-weight: bold;">{{ vdata2.pan_number }}</label> 
+                                    {% else %}   
+                                    <label style="font-weight: bold;">{{ vdata2.gst_number }}</label> 
+                                    <label for="">,</label>
+                                    <label style="font-weight: bold;">{{ vdata2.pan_number }}</label> 
+    
+                                    {% endif %}                
+                                 </div>   
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color:rgb(214, 75, 75) ;font-weight: bold;">Opening Balance*</label></div>
+                                 <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                    <label style="font-weight: bold;">{{ vdata2.opening_bal }}</label>      
+                                 </div>   
+                            </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);font-size:medium;">Email Id</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.company_name }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.vendor_email }}</label>      
                              </div>   
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Email Id</label></div>
-                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.vendor_email }}</label>      
-                             </div>   
-                        </div>
-                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
                             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Phone Number</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.vendor_wphone }} , {{ vdata2.vendor_mphone }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.vendor_wphone }} , {{ vdata2.vendor_mphone }}</label>      
                              </div>   
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Website</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label style="font-weight:lighter;">{{ vdata2.website }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
+                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Skype Number</label></div>
+                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
+                                <label style="font-weight:lighter;">{{ vdata2.skype_number }}</label>      
+                             </div>   
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
                             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Designation</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.designation }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.designation }}</label>      
                              </div>   
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
                             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Department</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.department }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.department }}</label>      
                              </div>   
                         </div>                       
+                        
+                       
                         <div class="form-group row">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">GST Treatment</label></div>
-                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.gst_treatment }}</label>      
-                             </div>   
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">GST/PAN Number</label></div>
-                             <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                {% if vdata2.gst_number == "null" %}
-                                <label>{{ vdata2.pan_number }}</label> 
-                                {% else %}   
-                                <label>{{ vdata2.gst_number }}</label> 
-                                {% endif %}                
-                             </div>   
-                        </div>
-                        <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
                             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Payment Terms</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.payment_terms }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.payment_terms }}</label>      
                              </div>   
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+
                             <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">Source of supply</label></div>
                              <div class="col-sm-12 col-md-6 col-lg-6 col-form-label">
-                                <label>{{ vdata2.source_supply }}</label>      
+                                <label style="font-weight:lighter;">{{ vdata2.source_supply }}</label>      
                              </div>   
                         </div>
                     </div>
@@ -145,7 +201,7 @@
                   </fieldset1> 
 
                   <fieldset2 id="comments" style="display: none;">
-                    <form action="{% url 'add_comment' vdata2.id %}" method="post" class="was-validated">
+                    <form action="{% url 'add_comment' vdata2.id %}" method="post">
                         {% csrf_token %}
                         <div class="form-group row mt-4">
                             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -175,38 +231,41 @@
 
                         </div>
                     </div>
-                    <form action="{% url 'sendmail' vdata2.id %}" method="post" enctype="multipart/form-data" class="was-validated">
-                        {% csrf_token %}
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">To</label></div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                 <!-- <label class="col-form-label" name="email" style="color: white;">{{ vdata2.vendor_email }}</label>   -->
-                                 <input type="email" name="email" class="form-control" value="{{ vdata2.vendor_email }}" readonly>
+                    <div style="height: 450px;overflow-y: scroll;">
+                        <form action="{% url 'sendmail' vdata2.id %}" method="post" enctype="multipart/form-data" class="was-validated">
+                            {% csrf_token %}
+                            <div class="form-group row mt-4">
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label style="color: rgb(230, 171, 45);">To</label></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                     <!-- <label class="col-form-label" name="email" style="color: white;">{{ vdata2.vendor_email }}</label>   -->
+                                     <input type="email" name="email" class="form-control" value="{{ vdata2.vendor_email }}" readonly>
+                                </div>
+    
                             </div>
-
-                        </div>
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color: rgb(230, 171, 45);"><label style="color: rgb(230, 171, 45);">Subject</label></div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                 <input type="text" class="form-control" name="subject" placeholder="subject" required>
-                                 <div class="valid-feedback">Valid.</div>
-
-                                 <div class="invalid-feedback">Please fill out this field.</div>   
+                            <div class="form-group row mt-4">
+                                <div class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color: rgb(230, 171, 45);"><label style="color: rgb(230, 171, 45);">Subject</label></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                     <input type="text" class="form-control" name="subject" placeholder="subject" required>
+                                     <div class="valid-feedback">Valid.</div>
+    
+                                     <div class="invalid-feedback">Please fill out this field.</div>   
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-3 col-lg-3"></div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                 <textarea name="content" id="" cols="50" rows="5" placeholder="Type here....."></textarea>  
+                            <div class="form-group row mt-4">
+                                <div class="col-sm-12 col-md-3 col-lg-3"></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                     <textarea name="content" id="" cols="60" rows="4" placeholder="Type here....."></textarea>  
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-3 col-lg-3"></div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                   <input type="submit" class="btn btn-primary form-control" value="Send">   
+                            <div class="form-group row mt-4">
+                                <div class="col-sm-12 col-md-3 col-lg-3"></div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                       <input type="submit" class="btn btn-primary form-control" value="Send">   
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                        <br><br><br><br>
+                    </div>
 
                   </fieldset3>
 
@@ -446,6 +505,35 @@
                 else{
                     tr[i].style.display="none";
                 }
+            }
+        }
+    }
+
+    function sortTable()
+    {
+        var table,i,x,y;
+        table=document.getElementById("myTable");
+        var switching=true;
+        while(switching)
+        {
+            switching=false;
+            var rows=table.rows
+            for(i = 0 ; i < (rows.length - 1) ; i++)
+            {
+                var Switch=false;
+                x = rows[i].getElementsByTagName("TD") [0];
+                y = rows[i + 1].getElementsByTagName("TD") [0];
+                if(x.innerText.toLowerCase() > y.innerText.toLowerCase())
+                {
+                    Switch=true;
+                    break;
+                }
+
+            }
+            if(Switch)
+            {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching=true
             }
         }
     }

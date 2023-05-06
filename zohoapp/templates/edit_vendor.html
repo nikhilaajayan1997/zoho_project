@@ -217,8 +217,9 @@
                       <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > PAN</label>
                        
                       <div class=" col-sm-12 col-md-3 col-lg-3">
-                          <input type="text" class="form-control" id="pan_input" name="pan_number" value="{{ vdata.pan_number }}">      
-  
+                          <input type="text" class="form-control" id="pan_input" name="pan_number" onmouseout="pan_check()" value="{{ vdata.pan_number }}">      
+                          <label id="pan_label"></label>     
+
                       </div>
    
    
@@ -380,7 +381,7 @@
         if((x=="Registered Business-Regular Business that is registered under GST") || (x=="Registered Business-Composition Business that is registered under the Composition scheme in GST") || (x=="Overseas- Persons with who you do import or exports of supplies outside india") || (x=="Special Economic Zone"))
         {
             document.getElementById("gst").style.display="block";
-            document.getElementById("pan").style.display="none";
+            document.getElementById("pan").style.display="block";
 
 
         }
@@ -407,6 +408,22 @@
             gst_label.style.color="green";
 
             gst_label.innerHTML = "valid GST Number.";
+
+        }
+    }
+
+    function pan_check(){
+        var x=document.getElementById("pan_input").value;
+        var gst_label=document.getElementById("pan_label")
+        var expr=    /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/
+        if (!expr.test(x)) {
+            pan_label.style.color="red";
+            pan_label.innerHTML = "Invalid PAN Number.";
+        }
+        else{
+            pan_label.style.color="green";
+
+            pan_label.innerHTML = "valid PAN Number.";
 
         }
     }
