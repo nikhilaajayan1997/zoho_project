@@ -459,10 +459,7 @@ def sendmail(request,pk):
 
         return redirect("view_vendor_list")
 
-# def senditem(request,pk):
-#     vdata=vendor_table.objects.get(id=pk)
-#     mdata=mail_table.objects.filter(vendor=vdata)
-#     return render(request,'sentitem.html',{'mdata':mdata})
+
 
 def edit_vendor(request,pk):
     vdata=vendor_table.objects.get(id=pk)
