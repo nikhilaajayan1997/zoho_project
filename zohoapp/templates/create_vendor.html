@@ -159,24 +159,33 @@
 
 
 
-                <span class="input-group mb-3 mt-3">
+                <span class="input-group mb-1 mt-3">
                     <div class="toggle2"
                       style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      <a href="" style="color: rgb(230, 171, 45);">Other Details </a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="toggle3"
-                      style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      Address</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <a href="" style="color: rgb(230, 171, 45);">Other Details </a></div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="toggle3" style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                    
+                      <a href="" style="color: rgb(230, 171, 45);">Address </a>
+                      <!-- <button class="btn" onclick="fieldset5_function()" style="border: none;background-color: transparent;">Address</button> -->
+                    </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                     <div class="toggle4"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      Contact persons</div>
+                      <a href="" style="color: rgb(230, 171, 45);">Contact Persons </a></div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                     <div class="toggle6"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
                       Reporting Tags</div>
+
                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                     <div class="toggle7"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
                       Remarks</div>
+
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </span><br><br><br>
 
@@ -184,7 +193,7 @@
 
                     
 
-                      <div class="form-group row mt-4">
+                      <div class="form-group row mt-2">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> GST Treatment*</label>
                          
                         <div class=" col-sm-12 col-md-3 col-lg-3">
@@ -284,14 +293,10 @@
 
 
                 <div class="form-group row mt-4">
-                    <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Opening Balance</label>
-                     
+                    <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Opening Balance</label>                    
                     <div class=" col-sm-12 col-md-3 col-lg-3">
                         <input  type="number" class="form-control" name="opening_bal">      
-
                     </div>
- 
- 
                 </div>
 
 
@@ -316,6 +321,180 @@
                 
 
             </fieldset2>
+<!-- ....................................   Fieldset 5  .................................................... -->
+
+            <fieldset5 id="address" style="display: none;">
+                <div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <label for="">BILLING ADDRESS</label>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="text" class="form-control" name="battention" id="batten">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <select name="bcountry" id="btry" class="form-control">
+                                        <option value="India" selected>India</option>
+                                    </select>      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <textarea cols="26" rows="4" name="baddress" id="badd1"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="text" class="form-control" name="bcity" id="bcty">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input type="text" class="form-control" name="bstate" id="bste">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="bzip" id="bzp">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="bphone" id="bphn">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="bfax" id="bfx">      
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <label for="">SHIPPING ADDRESS</label>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <input type="checkbox" id="myCheckT" onclick="myCopyAddressFunction()">&nbsp;
+                                    <label for="myCheck">Same as Billing Address:</label>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="text" class="form-control" name="sattention" id="satten">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <select name="scountry" id="sctry" class="form-control">
+                                        <option value="India" selected>India</option>
+                                    </select>      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <textarea  id="sadd1" cols="26" rows="4" name="saddress"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="text" class="form-control" name="scity" id="scty">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input type="text" class="form-control" name="sstate" id="sste">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="szip" id="szp">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="sphone" id="sphn">      
+                                </div>
+                            </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
+                                <div class=" col-sm-12 col-md-6 col-lg-6">
+                                    <input  type="number" class="form-control" name="sfax" id="sfx">      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset5>
+
+            <fieldset6 id="contact_person" style="display: none;color: azure ; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;" >
+                <div class="row">
+                    <div class="col-sm-12 col-md-11 col-lg-11">
+                        <div style="overflow-x: scroll;">
+                            <table id="tbl" style="border:1px solid;border-color:white;width:75%;">
+                                <tr>
+                                  <th>Salutation</th>
+                                  <th>First Name</th>
+                                  <th>Last Name</th>
+                                  <th>Email Address</th>
+                                  <th >Work Phone</th>
+                                  <th >Mobile</th>
+                                  <th >Skype Name/No</th>
+                                  <th >Designation</th>
+                                  <th >Department</th>
+                                </tr>
+                                <tr>
+                                  <td><select name="Place" id="PLACE" style="width:8rem;height: 2.4rem;">
+                                      <option value="value" selected>Mr.</option>
+                                      <option value="volvo">Mrs.</option>
+                                      <option value="saab">Ms.</option>
+                                      <option value="mercedes">Miss.</option>
+                                      <option value="audi">Dr.</option>
+                                    </select></td>
+                                  <td><input type="text" style="width:8rem;"  name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" id="hid" name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" id="hid"  name="keywords" /></td>
+                                  <td><input type="text" style="width:8rem;" id="hid"  name="keywords" /></td>
+                                  <!-- <td>                              <div class="toggle10"><a href="">...</a></div>   </td> -->
+                                </tr>
+                              </table>
+                              <div class="button add_another"
+                            style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                            + Add Contact Person</div>
+                        </div>
+                          
+                    </div>
+                    
+                </div>
+
+            </fieldset6>
 
 
 
@@ -336,12 +515,14 @@
                 </div>
 
            
-            <br><br><br><br><br><br><br>
 
 
-                                          
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+
+                       
 
               </form>
+
           </div>
     </div>
      
@@ -415,13 +596,91 @@
         $(".toggle2").click(function (e) {
           e.preventDefault();
           $("fieldset2").toggle();
+        //   $("fieldset5").toggle();
+        //   $("fieldset6").toggle();
+
+
         })
       })
+      $(document).ready(function () {
+        $(".toggle3").click(function (e) {
+          e.preventDefault();
+          $("fieldset5").toggle();
 
-      fieldset1_function()
+        })
+      })
+      $(document).ready(function () {
+        $(".toggle4").click(function (e) {
+          e.preventDefault();
+          $("fieldset6").toggle();
+         
+
+         
+        })
+      })
+      $('document').ready(function () {
+        $('.add_another').click(function () {
+          $("#tbl").append('<tr><td><select name="Place" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="value" selected>Mr.</option><option value="volvo">Mrs.</option><option value="saab">Ms.</option><option value="mercedes">Miss.</option><option value="audi">Dr.</option></select>  </td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+        });
+      })
+
+      function fieldset5_function()
       {
-        document.getElementById("more_detail").style.display="block";
+        document.getElementById("address").style.display="block";
       }
+
+      function myCopyAddressFunction() {
+        var checkBox = document.getElementById("myCheckT");
+        var textatn = document.getElementById("batten");
+        var txtcry = document.getElementById("bctry");
+        var txtadrs11 = document.getElementById("badd1");
+        var txtcty = document.getElementById("bcty");
+        var txtstat = document.getElementById("bste");
+        var txtzip = document.getElementById("bzp");
+        var txtphone = document.getElementById("bphn");
+        var txtfx = document.getElementById("bfx");
+  
+        var textatn1 = document.getElementById("satten");
+        var txtcry1 = document.getElementById("sctry");
+        var txtadrs21 = document.getElementById("sadd1");
+        var txtcty1 = document.getElementById("scty");
+        var txtstat1 = document.getElementById("sste");
+        var txtzip1 = document.getElementById("szp");
+        var txtphone1 = document.getElementById("sphn");
+        var txtfx1 = document.getElementById("sfx");
+        if (checkBox.checked == true) {
+          txtadrs21.value = txtadrs11.value;
+          txtcty1.value = txtcty.value;
+          txtstat1.value = txtstat.value;
+          txtzip1.value = txtzip.value;
+          txtphone1.value = txtphone.value;
+          txtfx1.value = txtfx.value;
+
+          textatn1.value = textatn.value;
+          
+  
+        } else {
+          txtadrs21.value = "";
+          txtcty1.value = "";
+          txtstat1.value = "";
+          txtzip1.value = "";
+          txtphone1.value = "";
+          txtfx1.value = "";
+          txtcry1.value = "";
+          textatn1.value = "";
+
+  
+        }
+      }
+
+      function open_table()
+      {
+        document.getElementById("hid").style.display="block";
+        
+      }
+      
+
+     
 </script>
 
 

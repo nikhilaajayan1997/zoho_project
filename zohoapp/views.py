@@ -359,7 +359,7 @@ def vendor(request):
 @login_required(login_url='login')
 def add_vendor(request):
     if request.method=="POST":
-        vendor_data=vendor_table()
+        vendor_data=vendor_table1()
         vendor_data.salutation=request.POST['salutation']
         vendor_data.first_name=request.POST['first_name']
         vendor_data.last_name=request.POST['last_name']
@@ -390,21 +390,23 @@ def add_vendor(request):
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
         vendor_data.user=udata
+        vendor_data.battention=request.POST['battention']
+        vendor_data.bcountry=request.POST['bcountry']
+        vendor_data.baddress=request.POST['baddress']
+        vendor_data.bcity=request.POST['bcity']
+        vendor_data.bstate=request.POST['bstate']
+        vendor_data.bzip=request.POST['bzip']
+        vendor_data.bphone=request.POST['bphone']
+        vendor_data.bfax=request.POST['bfax']
 
-        
-
-
-
-        
-        # vendor_data=vendor(user=udata,salutation=salutation,first_name=first_name,last_name=last_name,
-        #     company_name=company_name,vendor_display_name=vendor_display_name,vendor_email=vendor_email,
-        #     vendor_wphone=vendor_wphone,vendor_mphone=vendor_mphone,skype_number=skype_number,designation=designation,
-        #     department=department,website=website,gst_treatment=gst_treatment,source_supply=source_supply,
-        #     gst_number=gst_number,pan_number=pan_number,currency=currency,opening_bal=opening_bal,
-        #     payment_terms=payment_terms)
-        
-        
-        
+        vendor_data.sattention=request.POST['sattention']
+        vendor_data.scountry=request.POST['scountry']
+        vendor_data.saddress=request.POST['saddress']
+        vendor_data.scity=request.POST['scity']
+        vendor_data.sstate=request.POST['sstate']
+        vendor_data.szip=request.POST['szip']
+        vendor_data.sphone=request.POST['sphone']
+        vendor_data.sfax=request.POST['sfax']
         
         vendor_data.save()
         return redirect('base')
