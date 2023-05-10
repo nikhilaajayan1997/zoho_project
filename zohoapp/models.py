@@ -134,24 +134,60 @@ class vendor_table1(models.Model):
     sphone=models.CharField(max_length=100)
     sfax=models.CharField(max_length=100)
 
-
-class comments_table(models.Model):
+class contact_person_table(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table1,on_delete=models.CASCADE,null=True)
+    salutation=models.CharField(max_length=25)
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50)
+    email=models.CharField(max_length=200)
+    work_phone=models.CharField(max_length=50)
+    mobile=models.CharField(max_length=50)
+    skype_number=models.CharField(max_length=50)
+    designation=models.CharField(max_length=50)
+    department=models.CharField(max_length=50)
+
+class remarks_table(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table1,on_delete=models.CASCADE,null=True)
+    remarks=models.CharField(max_length=500)
+
+
+
+# class comments_table(models.Model):
+#     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+#     vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+#     comment=models.TextField(max_length=500)
+class comments_table1(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table1,on_delete=models.CASCADE,null=True)
     comment=models.TextField(max_length=500)
 
-class mail_table(models.Model):
+# class mail_table(models.Model):
+#     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+#     vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+#     mail_from=models.TextField(max_length=300)
+#     mail_to=models.TextField(max_length=300)
+#     subject=models.TextField(max_length=250)
+#     content=models.TextField(max_length=900)
+#     mail_date=models.DateTimeField(auto_now_add=True)
+class mail_table1(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table1,on_delete=models.CASCADE,null=True)
     mail_from=models.TextField(max_length=300)
     mail_to=models.TextField(max_length=300)
     subject=models.TextField(max_length=250)
     content=models.TextField(max_length=900)
     mail_date=models.DateTimeField(auto_now_add=True)
 
-class doc_upload_table(models.Model):
+# class doc_upload_table(models.Model):
+#     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+#     vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+#     title=models.TextField(max_length=200)
+#     document=models.FileField(upload_to='doc/')
+class doc_upload_table1(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    vendor=models.ForeignKey(vendor_table,on_delete=models.CASCADE,null=True)
+    vendor=models.ForeignKey(vendor_table1,on_delete=models.CASCADE,null=True)
     title=models.TextField(max_length=200)
     document=models.FileField(upload_to='doc/')
 

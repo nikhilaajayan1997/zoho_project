@@ -184,7 +184,7 @@
                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                     <div class="toggle7"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      Remarks</div>
+                      <a href="" style="color: rgb(230, 171, 45);">Remarks</a></div>
 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </span><br><br><br>
@@ -467,22 +467,21 @@
                                   <th >Department</th>
                                 </tr>
                                 <tr>
-                                  <td><select name="Place" id="PLACE" style="width:8rem;height: 2.4rem;">
-                                      <option value="value" selected>Mr.</option>
-                                      <option value="volvo">Mrs.</option>
-                                      <option value="saab">Ms.</option>
-                                      <option value="mercedes">Miss.</option>
-                                      <option value="audi">Dr.</option>
+                                  <td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;">
+                                      <option value="Mr" selected>Mr.</option>
+                                      <option value="Mrs">Mrs.</option>
+                                      <option value="Ms">Ms.</option>
+                                      <option value="Miss">Miss.</option>
+                                      <option value="Dr">Dr.</option>
                                     </select></td>
-                                  <td><input type="text" style="width:8rem;"  name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" id="hid" name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" id="hid"  name="keywords" /></td>
-                                  <td><input type="text" style="width:8rem;" id="hid"  name="keywords" /></td>
-                                  <!-- <td>                              <div class="toggle10"><a href="">...</a></div>   </td> -->
+                                  <td><input type="text" style="width:8rem;"  name="first_name[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="last_name[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="email[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="wphone[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="mobile[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="skype[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="designation[]" /></td>
+                                  <td><input type="text" style="width:8rem;" name="department[]" /></td>
                                 </tr>
                               </table>
                               <div class="button add_another"
@@ -495,6 +494,20 @@
                 </div>
 
             </fieldset6>
+            <fieldset7 class="remarks" style="display: none;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <div class="form-group row mt-4">
+                            <!-- <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                     -->
+                            <div class=" col-sm-12 col-md-6 col-lg-6">
+                                <textarea cols="70" rows="4" name="remark"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 col-lg-2"></div>
+                </div>
+
+            </fieldset7>
 
 
 
@@ -618,9 +631,18 @@
          
         })
       })
+      $(document).ready(function () {
+        $(".toggle7").click(function (e) {
+          e.preventDefault();
+          $("fieldset7").toggle();
+         
+
+         
+        })
+      })
       $('document').ready(function () {
         $('.add_another').click(function () {
-          $("#tbl").append('<tr><td><select name="Place" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="value" selected>Mr.</option><option value="volvo">Mrs.</option><option value="saab">Ms.</option><option value="mercedes">Miss.</option><option value="audi">Dr.</option></select>  </td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
         });
       })
 
