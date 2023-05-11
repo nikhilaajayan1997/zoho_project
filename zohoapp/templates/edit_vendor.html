@@ -136,26 +136,36 @@
 
 
 
-          <!-- <span class="input-group mb-3 mt-3">
-              <div class="toggle2"
-                style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                <a href="" style="color: rgb(230, 171, 45);">Other Details </a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="toggle3"
-                style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                Address</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="toggle4"
-                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                Contact persons</div>
+          
+          <span class="input-group mb-1 mt-3">
+            <div class="toggle2"
+              style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+              <a href="" style="color: rgb(230, 171, 45);">Other Details </a></div>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="toggle6"
-                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                Reporting Tags</div>
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-              <div class="toggle7"
-                style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                Remarks</div>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </span><br><br><br> -->
+
+            <div class="toggle3" style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+            
+              <a href="" style="color: rgb(230, 171, 45);">Address </a>
+              <!-- <button class="btn" onclick="fieldset5_function()" style="border: none;background-color: transparent;">Address</button> -->
+            </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="toggle4"
+              style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+              <a href="" style="color: rgb(230, 171, 45);">Contact Persons </a></div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="toggle6"
+              style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+              Reporting Tags</div>
+
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <div class="toggle7"
+              style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+              <a href="" style="color: rgb(230, 171, 45);">Remarks</a></div>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span><br><br><br>
 
             <fieldset2 class="other details">
 
@@ -314,6 +324,203 @@
       </fieldset2>
 
 
+      <fieldset5 id="address" style="display: none;">
+        <div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label for="">BILLING ADDRESS</label>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="text" class="form-control" value="{{ vdata.battention }}" name="battention">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <select name="bcountry" id="btry" class="form-control">
+                                <option value="{{ vdata.bcountry }}" selected>{{ vdata.bcountry }}</option>
+                                <option value="India" >India</option>
+                            </select>      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <textarea cols="26" rows="4" name="baddress">{{ vdata.baddress }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="text" class="form-control" name="bcity" value="{{ vdata.bcity }}" id="bcty">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input type="text" class="form-control" name="bstate" value="{{ vdata.bstate }}" id="bste">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="bzip" value="{{ vdata.bzip }}" id="bzp">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="bphone" value="{{ vdata.bphone }}" id="bphn">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="bfax" value="{{ vdata.bfax }}" id="bfx">      
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label for="">SHIPPING ADDRESS</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="text" class="form-control" name="sattention" value="{{ vdata.sattention }}" id="satten">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <select name="scountry" id="sctry" class="form-control">
+                                <option value="{{ vdata.scountry }}" selected>{{ vdata.scountry }}</option>
+                                <option value="India" selected>India</option>
+                            </select>      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <textarea  id="sadd1" cols="26" rows="4" name="saddress">{{ vdata.saddress }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="text" class="form-control" value="{{ vdata.scity }}" name="scity" id="scty">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input type="text" class="form-control" name="sstate" value="{{ vdata.sstate }}" id="sste">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="szip" value="{{ vdata.szip }}" id="szp">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="sphone" value="{{ vdata.sphone }}" id="sphn">      
+                        </div>
+                    </div>
+                    <div class="form-group row mt-4">
+                        <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
+                        <div class=" col-sm-12 col-md-6 col-lg-6">
+                            <input  type="number" class="form-control" name="sfax" value="{{ vdata.sfax }}" id="sfx">      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset5>
+
+
+    <fieldset6 id="contact_person" style="display: none;color: azure ; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;" >
+        <div class="row">
+            <div class="col-sm-12 col-md-11 col-lg-11">
+                <div style="overflow-x: scroll;">
+                    <table id="tbl" style="border:1px solid;border-color:white;width:75%;">
+                        <tr>
+                          <th>Salutation</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email Address</th>
+                          <th >Work Phone</th>
+                          <th >Mobile</th>
+                          <th >Skype Name/No</th>
+                          <th >Designation</th>
+                          <th >Department</th>
+                        </tr>
+                        {% for p in pdata %}
+                        <tr>
+                          <td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;">
+                             <option value="{{ p.salutation }}" selected>{{ p.salutation }}</option>
+                              <option value="Mr" >Mr.</option>
+                              <option value="Mrs">Mrs.</option>
+                              <option value="Ms">Ms.</option>
+                              <option value="Miss">Miss.</option>
+                              <option value="Dr">Dr.</option>
+                            </select></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.first_name }}"  name="first_name[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.last_name }}" name="last_name[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.email }}" name="email[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.work_phone }}" name="wphone[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.mobile }}" name="mobile[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.skype_number }}" name="skype[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.designation }}" name="designation[]" /></td>
+                          <td><input type="text" style="width:8rem;" value="{{ p.department }}" name="department[]" /></td>
+                        </tr>
+                        {% endfor %}
+                      </table>
+                      <div class="button add_another"
+                    style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
+                    + Add Contact Person</div>
+                </div>
+                  
+            </div>
+            
+        </div>
+
+    </fieldset6>
+
+
+    <!-- ...........................................................Remarks    ......................................... -->
+
+
+
+    <fieldset7 class="remarks" style="display: none;">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-8">
+                <div class="form-group row mt-4">
+                    <!-- <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                     -->
+                    <div class=" col-sm-12 col-md-6 col-lg-6">
+                        <textarea cols="70" rows="4" name="remark" >{{ rdata.remarks }}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2"></div>
+        </div>
+
+    </fieldset7>
+
+
 
       
           <div class="row mt-4">
@@ -356,6 +563,47 @@
 
 
 <script>
+
+       $(document).ready(function () {
+        $(".toggle2").click(function (e) {
+          e.preventDefault();
+          $("fieldset2").toggle();
+       
+        })
+      })
+
+      $(document).ready(function () {
+        $(".toggle3").click(function (e) {
+          e.preventDefault();
+          $("fieldset5").toggle();
+
+        })
+      })
+
+      $(document).ready(function () {
+        $(".toggle4").click(function (e) {
+          e.preventDefault();
+          $("fieldset6").toggle();
+                 
+        })
+      })
+
+      $(document).ready(function () {
+        $(".toggle7").click(function (e) {
+          e.preventDefault();
+          $("fieldset7").toggle();
+                  
+        })
+      })
+
+      $('document').ready(function () {
+        $('.add_another').click(function () {
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+        });
+      })
+
+
+
     function gstPan_function(){
         var x=document.getElementById('GSTT').value
         

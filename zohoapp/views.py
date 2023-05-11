@@ -359,7 +359,7 @@ def vendor(request):
 @login_required(login_url='login')
 def add_vendor(request):
     if request.method=="POST":
-        vendor_data=vendor_table1()
+        vendor_data=vendor_table()
         vendor_data.salutation=request.POST['salutation']
         vendor_data.first_name=request.POST['first_name']
         vendor_data.last_name=request.POST['last_name']
@@ -409,7 +409,7 @@ def add_vendor(request):
         vendor_data.sfax=request.POST['sfax']
         vendor_data.save()
 # .......................................................adding to remaks table.....................
-        vdata=vendor_table1.objects.get(id=vendor_data.id)
+        vdata=vendor_table.objects.get(id=vendor_data.id)
         vendor=vdata
         rdata=remarks_table()
         rdata.remarks=request.POST['remark']
@@ -428,7 +428,7 @@ def add_vendor(request):
         skype_number =request.POST.getlist('skype[]')
         designation =request.POST.getlist('designation[]')
         department =request.POST.getlist('department[]') 
-        vdata=vendor_table1.objects.get(id=vendor_data.id)
+        vdata=vendor_table.objects.get(id=vendor_data.id)
         vendor=vdata
        
 
@@ -452,16 +452,16 @@ def sample(request):
 def view_vendor_list(request):
     user_id=request.user.id
     udata=User.objects.get(id=user_id)
-    data=vendor_table1.objects.filter(user=udata)
+    data=vendor_table.objects.filter(user=udata)
     return render(request,'vendor_list.html',{'data':data})
 
 def view_vendor_details(request,pk):
     user_id=request.user.id
     udata=User.objects.get(id=user_id)
-    vdata1=vendor_table1.objects.filter(user=udata)
-    vdata2=vendor_table1.objects.get(id=pk)
-    mdata=mail_table1.objects.filter(vendor=vdata2)
-    ddata=doc_upload_table1.objects.filter(user=udata,vendor=vdata2)
+    vdata1=vendor_table.objects.filter(user=udata)
+    vdata2=vendor_table.objects.get(id=pk)
+    mdata=mail_table.objects.filter(vendor=vdata2)
+    ddata=doc_upload_table.objects.filter(user=udata,vendor=vdata2)
 
     return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata,'ddata':ddata})
 
@@ -470,8 +470,8 @@ def add_comment(request,pk):
         comment=request.POST['comment']
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
-        vdata2=vendor_table1.objects.get(id=pk)
-        comments=comments_table1(user=udata,vendor=vdata2,comment=comment)
+        vdata2=vendor_table.objects.get(id=pk)
+        comments=comments_table(user=udata,vendor=vdata2,comment=comment)
         comments.save()
         return redirect("view_vendor_list")
 
@@ -479,12 +479,12 @@ def sendmail(request,pk):
     if request.method=='POST':
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
-        vdata2=vendor_table1.objects.get(id=pk)
+        vdata2=vendor_table.objects.get(id=pk)
         mail_from=settings.EMAIL_HOST_USER
         mail_to=request.POST['email']
         subject=request.POST['subject']
         content=request.POST['content']
-        mail_data=mail_table1(user=udata,vendor=vdata2,mail_from=mail_from,mail_to=mail_to,subject=subject,content=content)
+        mail_data=mail_table(user=udata,vendor=vdata2,mail_from=mail_from,mail_to=mail_to,subject=subject,content=content)
         mail_data.save()
 
         subject = request.POST['subject']
@@ -497,12 +497,27 @@ def sendmail(request,pk):
 
 
 def edit_vendor(request,pk):
-    vdata=vendor_table1.objects.get(id=pk)
-    return render(request,'edit_vendor.html',{'vdata':vdata})
+    vdata=vendor_table.objects.get(id=pk)
+    if remarks_table.objects.filter(vendor=vdata).exists() or contact_person_table.objects.filter(vendor=vdata).exists():
+        if remarks_table.objects.filter(vendor=vdata).exists() and contact_person_table.objects.filter(vendor=vdata).exists():
+            rdata=remarks_table.objects.get(vendor=vdata)
+            pdata=contact_person_table.objects.filter(vendor=vdata)
+            return render(request,'edit_vendor.html',{'vdata':vdata,'rdata':rdata,'pdata':pdata})
+        else:
+            if remarks_table.objects.filter(vendor=vdata).exists():
+                rdata=remarks_table.objects.get(vendor=vdata)
+                return render(request,'edit_vendor.html',{'vdata':vdata,'rdata':rdata})
+            if contact_person_table.objects.filter(vendor=vdata).exists():
+                pdata=contact_person_table.objects.filter(vendor=vdata)
+                return render(request,'edit_vendor.html',{'vdata':vdata,'pdata':pdata})      
+        
+    else:
+        return render(request,'edit_vendor.html',{'vdata':vdata})
+
 
 def edit_vendor_details(request,pk):
     if request.method=='POST':
-        vdata=vendor_table1.objects.get(id=pk)
+        vdata=vendor_table.objects.get(id=pk)
         vdata.salutation=request.POST['salutation']
         vdata.first_name=request.POST['first_name']
         vdata.last_name=request.POST['last_name']
@@ -528,22 +543,86 @@ def edit_vendor_details(request,pk):
         vdata.opening_bal=request.POST['opening_bal']
         vdata.payment_terms=request.POST['payment_terms']
 
+        vdata.battention=request.POST['battention']
+        vdata.bcountry=request.POST['bcountry']
+        vdata.baddress=request.POST['baddress']
+        vdata.bcity=request.POST['bcity']
+        vdata.bstate=request.POST['bstate']
+        vdata.bzip=request.POST['bzip']
+        vdata.bphone=request.POST['bphone']
+        vdata.bfax=request.POST['bfax']
+
+        vdata.sattention=request.POST['sattention']
+        vdata.scountry=request.POST['scountry']
+        vdata.saddress=request.POST['saddress']
+        vdata.scity=request.POST['scity']
+        vdata.sstate=request.POST['sstate']
+        vdata.szip=request.POST['szip']
+        vdata.sphone=request.POST['sphone']
+        vdata.sfax=request.POST['sfax']
+
         vdata.save()
+# .................................edit remarks_table ..........................
+        vendor=vdata
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+        if remarks_table.objects.filter(vendor=vdata).exists():
+            rdata=remarks_table.objects.get(vendor=vdata)
+            rdata.remarks=request.POST['remark']
+            rdata.save()
+        else:
+            rdata=remarks_table()
+            rdata.remarks=request.POST["remark"]
+            rdata.vendor=vendor
+            rdata.user=udata
+            rdata.save()
+
+# .................................contact_person_table................ deleting existing entries and inserting  ...............
+
+        pdata=contact_person_table.objects.filter(vendor=vdata)
+        salutation =request.POST.getlist('salutation[]')
+        first_name =request.POST.getlist('first_name[]')
+        last_name =request.POST.getlist('last_name[]')
+        email =request.POST.getlist('email[]')
+        work_phone =request.POST.getlist('wphone[]')
+        mobile =request.POST.getlist('mobile[]')
+        skype_number =request.POST.getlist('skype[]')
+        designation =request.POST.getlist('designation[]')
+        department =request.POST.getlist('department[]') 
+
+        vdata=vendor_table.objects.get(id=vdata.id)
+        vendor=vdata
+        user_id=request.user.id
+        udata=User.objects.get(id=user_id)
+
+        # .....  deleting existing rows......
+        pdata.delete()
+        if len(salutation)==len(first_name)==len(last_name)==len(email)==len(work_phone)==len(mobile)==len(skype_number)==len(designation)==len(department):
+            mapped2=zip(salutation,first_name,last_name,email,work_phone,mobile,skype_number,designation,department)
+            mapped2=list(mapped2)
+            print(mapped2)
+            for ele in mapped2:
+                created = contact_person_table.objects.get_or_create(salutation=ele[0],first_name=ele[1],last_name=ele[2],email=ele[3],
+                         work_phone=ele[4],mobile=ele[5],skype_number=ele[6],designation=ele[7],department=ele[8],user=udata,vendor=vendor)
+        
+
+
+
         return redirect("view_vendor_list")
 
 def upload_document(request,pk):
     if request.method=='POST':
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
-        vdata=vendor_table1.objects.get(id=pk)
+        vdata=vendor_table.objects.get(id=pk)
         title=request.POST['title']
         document=request.FILES.get('file')
-        doc_data=doc_upload_table1(user=udata,vendor=vdata,title=title,document=document)
+        doc_data=doc_upload_table(user=udata,vendor=vdata,title=title,document=document)
         doc_data.save()
         return redirect("view_vendor_list")
 
 def download_doc(request,pk):
-    document=get_object_or_404(doc_upload_table1,id=pk)
+    document=get_object_or_404(doc_upload_table,id=pk)
     response=HttpResponse(document.document,content_type='application/pdf')
     response['Content-Disposition']=f'attachment; filename="{document.document.name}"'
     return response
@@ -552,16 +631,23 @@ def cancel_vendor(request):
     return redirect("view_vendor_list")
 
 def delete_vendor(request,pk):
-    if comments_table1.objects.filter(vendor=pk).exists():
-        user2=comments_table1.objects.filter(vendor=pk)
+    if comments_table.objects.filter(vendor=pk).exists():
+        user2=comments_table.objects.filter(vendor=pk)
         user2.delete()
-    if mail_table1.objects.filter(vendor=pk).exists():
-        user3=mail_table1.objects.filter(vendor=pk)
+    if mail_table.objects.filter(vendor=pk).exists():
+        user3=mail_table.objects.filter(vendor=pk)
         user3.delete()
-    if doc_upload_table1.objects.filter(vendor=pk).exists():
-        user4=doc_upload_table1.objects.filter(vendor=pk)
+    if doc_upload_table.objects.filter(vendor=pk).exists():
+        user4=doc_upload_table.objects.filter(vendor=pk)
         user4.delete()
-    user1=vendor_table1.objects.get(id=pk)
+    if contact_person_table.objects.filter(vendor=pk).exists():
+        user5=contact_person_table.objects.filter(vendor=pk)
+        user5.delete()
+    if remarks_table.objects.filter(vendor=pk).exists():
+        user6=remarks_table.objects.filter(vendor=pk)
+        user6.delete()
+    
+    user1=vendor_table.objects.get(id=pk)
     user1.delete()
     return redirect("view_vendor_list")
         

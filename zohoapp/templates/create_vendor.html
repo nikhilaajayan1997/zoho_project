@@ -177,9 +177,9 @@
                       <a href="" style="color: rgb(230, 171, 45);">Contact Persons </a></div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <div class="toggle6"
+                    <!-- <div class="toggle6"
                       style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-                      Reporting Tags</div>
+                      Reporting Tags</div> -->
 
                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                     <div class="toggle7"
@@ -494,6 +494,13 @@
                 </div>
 
             </fieldset6>
+
+
+
+ <!-- ...........................................................Remarks    ......................................... -->
+
+
+
             <fieldset7 class="remarks" style="display: none;">
                 <div class="row">
                     <div class="col-sm-12 col-md-8 col-lg-8">
@@ -608,17 +615,24 @@
       $(document).ready(function () {
         $(".toggle2").click(function (e) {
           e.preventDefault();
-          $("fieldset2").toggle();
-        //   $("fieldset5").toggle();
-        //   $("fieldset6").toggle();
+         
+          $("fieldset2").toggle(); 
+          $("fieldset5").hide();
+          $("fieldset6").hide();
+          $("fieldset7").hide();
 
 
+      
         })
       })
+
       $(document).ready(function () {
         $(".toggle3").click(function (e) {
           e.preventDefault();
           $("fieldset5").toggle();
+          $("fieldset2").hide();
+          $("fieldset6").hide();
+          $("fieldset7").hide();
 
         })
       })
@@ -626,20 +640,25 @@
         $(".toggle4").click(function (e) {
           e.preventDefault();
           $("fieldset6").toggle();
-         
-
-         
+          $("fieldset2").hide();
+          $("fieldset5").hide();
+          $("fieldset7").hide();
+                
         })
       })
       $(document).ready(function () {
         $(".toggle7").click(function (e) {
           e.preventDefault();
           $("fieldset7").toggle();
+          $("fieldset2").hide();
+          $("fieldset6").hide();
+          $("fieldset5").hide();
          
 
          
         })
       })
+
       $('document').ready(function () {
         $('.add_another').click(function () {
           $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
