@@ -97,12 +97,14 @@
                  <div class="form-group row mt-4">
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
                      <div class="col-sm-12 col-md-3 col-lg-3">
-                         <input  type="number" class="form-control" name="w_phone" placeholder="work phone" required>
+                         <input id="workphone"  type="number" class="form-control"   name="w_phone" placeholder="work phone" required>
+                         <label for="" id="workphone_label"></label>
                          <div class="invalid-feedback">Please fill out this field.</div>   
       
                      </div>
                      <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <input  type="number" class="form-control" name="m_phone" placeholder="mobile number" required>
+                        <input id="mphone"  type="number" class="form-control" onclick="work_phone()" name="m_phone" placeholder="mobile number" required>
+                        <label for="" id="mphone_label"></label>
                         <div class="invalid-feedback">Please fill out this field.</div>   
       
                     </div>
@@ -123,7 +125,8 @@
                         <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Skype name/Number</label></div>
                        
                          <div class="col-sm-12 col-md-6 col-lg-6">
-                           <input  type="text" class="form-control" name="skype_number">      
+                           <input id="skype"  type="text" class="form-control" name="skype_number">  
+                           <label for="" id="skype_label"></label>    
                          </div>
                          
      
@@ -134,7 +137,7 @@
                     <div class="form-group row mt-4">
                         <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Designation</label></div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                             <input  type="text" class="form-control" name="designation">      
+                             <input  type="text" class="form-control" onclick="skype_number()" name="designation">      
                          </div>
      
      
@@ -153,7 +156,7 @@
                 <div class="form-group row mt-4">
                     <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Website</label></div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                         <input type="text" class="form-control" name="website" required>      
+                         <input id="web" type="text" class="form-control" onclick="mobile_phone()"    name="website" required>      
                     </div>
                 </div>
 
@@ -374,13 +377,15 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="bphone" id="bphn">      
+                                    <input id="bphone_num"  type="number" class="form-control" name="bphone" >
+                                    <label for="" id="bphone_label"></label>      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="bfax" id="bfx">      
+                                    <input  type="number" class="form-control" onclick="bphone_number()" onmouseout="fax_number()" name="bfax" id="bfx">     
+                                    <label for="" id="fax_label"></label> 
                                 </div>
                             </div>
 
@@ -436,13 +441,15 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="sphone" id="sphn">      
+                                    <input  type="number" class="form-control" name="sphone" id="sphone_num">  
+                                    <label for="" id="sphone_label"></label>    
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="sfax" id="sfx">      
+                                    <input  type="number" class="form-control" name="sfax" onclick="sphone_number()" onmouseout="sfax_number()" id="sfx"> 
+                                    <label for="" id="sfax_label"></label>     
                                 </div>
                             </div>
                         </div>
@@ -460,8 +467,8 @@
                                   <th>First Name</th>
                                   <th>Last Name</th>
                                   <th>Email Address</th>
-                                  <th >Work Phone</th>
-                                  <th >Mobile</th>
+                                  <th >Work Phone <br><label for="" id="twph_label"></label></th>
+                                  <th >Mobile <br><label for="" id="tlabel"></label>    </th>
                                   <th >Skype Name/No</th>
                                   <th >Designation</th>
                                   <th >Department</th>
@@ -476,10 +483,10 @@
                                     </select></td>
                                   <td><input type="text" style="width:8rem;"  name="first_name[]" /></td>
                                   <td><input type="text" style="width:8rem;" name="last_name[]" /></td>
-                                  <td><input type="text" style="width:8rem;" name="email[]" /></td>
-                                  <td><input type="text" style="width:8rem;" name="wphone[]" /></td>
-                                  <td><input type="text" style="width:8rem;" name="mobile[]" /></td>
-                                  <td><input type="text" style="width:8rem;" name="skype[]" /></td>
+                                  <td><input type="email" style="width:8rem;" name="email[]" /></td>
+                                  <td><input type="number" style="width:8rem;" id="twphone" name="wphone[]"/></td>
+                                  <td><input type="number" style="width:8rem;" id="tmobile" onclick="sample1()"   name="mobile[]" /></td>
+                                  <td><input type="number" style="width:8rem;" onclick="sample()" name="skype[]" /></td>
                                   <td><input type="text" style="width:8rem;" name="designation[]" /></td>
                                   <td><input type="text" style="width:8rem;" name="department[]" /></td>
                                 </tr>
@@ -661,7 +668,7 @@
 
       $('document').ready(function () {
         $('.add_another').click(function () {
-          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="email" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="number" id="twphone" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="number" id="tmobile" onclick="sample1()" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="number" onclick="sample()" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
         });
       })
 
@@ -719,6 +726,166 @@
         document.getElementById("hid").style.display="block";
         
       }
+
+      function work_phone()
+      {
+        var x=document.getElementById("workphone").value;
+        var y=document.getElementById("workphone_label")
+        var expr=/^[0-9]{7}$/;
+        if (!expr.test(x)) {
+            y.style.color="red";
+            y.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            y.style.color="green";
+
+            y.innerHTML = "valid Phone Number.";
+
+        }
+
+
+      }
+
+      function mobile_phone()
+      {
+        
+        var a=document.getElementById("mphone").value;
+        var b=document.getElementById("mphone_label");
+        var expr=/^[0-9]{10}$/;
+        if (!expr.test(a)) {
+            b.style.color="red";
+            b.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            b.style.color="green";
+
+            b.innerHTML = "valid Phone Number.";
+
+        }
+      }
+
+      function bphone_number()
+      {
+        var a1=document.getElementById("bphone_num").value;
+        var b1=document.getElementById("bphone_label");
+        var expr=/^[0-9]{10}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            b1.style.color="green";
+
+            b1.innerHTML = "valid Phone Number.";
+
+        }
+      }
+
+      function sphone_number()
+      {
+        var a1=document.getElementById("sphone_num").value;
+        var b1=document.getElementById("sphone_label");
+        var expr=/^[0-9]{10}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            b1.style.color="green";
+
+            b1.innerHTML = "valid Phone Number.";
+
+        }
+      }
+
+      function fax_number()
+      {
+        var a1=document.getElementById("bfx").value;
+        var b1=document.getElementById("fax_label");
+        var expr=/^[0-9]{7}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            b1.style.color="green";
+
+            b1.innerHTML = "valid Phone Number.";
+
+        }
+      }
+      function sfax_number()
+      {
+        var a1=document.getElementById("sfx").value;
+        var b1=document.getElementById("sfax_label");
+        var expr=/^[0-9]{7}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid Phone Number.";
+        }
+        else{
+            b1.style.color="green";
+
+            b1.innerHTML = "valid Phone Number.";
+
+        }
+      }
+
+    
+      function sample()
+      {
+
+        var tbldata = document.getElementById("tbl");
+        var total_rows = tbldata.rows.length;
+        x=document.getElementById("tbl");
+        var a1=x.rows[total_rows-1].cells[5].getElementsByTagName('input')[0].value;
+
+        var b1=document.getElementById("tlabel");
+
+        b1.innerHTML = "";
+
+        var expr=/^[0-9]{10}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid";
+        }
+        else{
+            b1.style.color="green";
+            b1.innerHTML = "valid";
+
+        }
+
+       
+
+      }
+
+      function sample1()
+      {
+
+        var tbldata = document.getElementById("tbl");
+        var total_rows = tbldata.rows.length;
+        x=document.getElementById("tbl");
+        var a1=x.rows[total_rows-1].cells[4].getElementsByTagName('input')[0].value;
+
+        var b1=document.getElementById("twph_label");
+
+        b1.innerHTML = "";
+
+        var expr=/^[0-9]{7}$/;
+        if (!expr.test(a1)) {
+            b1.style.color="red";
+            b1.innerHTML = "Invalid";
+        }
+        else{
+            b1.style.color="green";
+            b1.innerHTML = "valid";
+
+        }
+
+       
+
+      }
+
       
 
      

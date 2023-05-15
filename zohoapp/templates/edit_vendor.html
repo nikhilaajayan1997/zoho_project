@@ -155,9 +155,9 @@
               <a href="" style="color: rgb(230, 171, 45);">Contact Persons </a></div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            <div class="toggle6"
+            <!-- <div class="toggle6"
               style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
-              Reporting Tags</div>
+              Reporting Tags</div> -->
 
             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             <div class="toggle7"
@@ -568,6 +568,9 @@
         $(".toggle2").click(function (e) {
           e.preventDefault();
           $("fieldset2").toggle();
+          $("fieldset5").hide();
+          $("fieldset6").hide();
+          $("fieldset7").hide();
        
         })
       })
@@ -576,6 +579,9 @@
         $(".toggle3").click(function (e) {
           e.preventDefault();
           $("fieldset5").toggle();
+          $("fieldset2").hide();
+          $("fieldset6").hide();
+          $("fieldset7").hide();
 
         })
       })
@@ -584,6 +590,9 @@
         $(".toggle4").click(function (e) {
           e.preventDefault();
           $("fieldset6").toggle();
+          $("fieldset2").hide();
+          $("fieldset5").hide();
+          $("fieldset7").hide();
                  
         })
       })
@@ -592,6 +601,9 @@
         $(".toggle7").click(function (e) {
           e.preventDefault();
           $("fieldset7").toggle();
+          $("fieldset2").hide();
+          $("fieldset6").hide();
+          $("fieldset5").hide();
                   
         })
       })
