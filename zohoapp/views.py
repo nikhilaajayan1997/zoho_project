@@ -355,6 +355,7 @@ def vendor(request):
     return render(request,'create_vendor.html')
 
 
+# ...........................................changed...............
 
 @login_required(login_url='login')
 def add_vendor(request):
@@ -495,6 +496,7 @@ def sendmail(request,pk):
         return redirect("view_vendor_list")
 
 
+# ...........................................changed...............
 
 def edit_vendor(request,pk):
     vdata=vendor_table.objects.get(id=pk)
@@ -515,6 +517,7 @@ def edit_vendor(request,pk):
         return render(request,'edit_vendor.html',{'vdata':vdata})
 
 
+# ...........................................changed...............
 def edit_vendor_details(request,pk):
     if request.method=='POST':
         vdata=vendor_table.objects.get(id=pk)
@@ -562,7 +565,7 @@ def edit_vendor_details(request,pk):
         vdata.sfax=request.POST['sfax']
 
         vdata.save()
-# .................................edit remarks_table ..........................
+             # .................................edit remarks_table ..........................
         vendor=vdata
         user_id=request.user.id
         udata=User.objects.get(id=user_id)
@@ -577,7 +580,7 @@ def edit_vendor_details(request,pk):
             rdata.user=udata
             rdata.save()
 
-# .................................contact_person_table................ deleting existing entries and inserting  ...............
+            # .......................contact_person_table................ deleting existing entries and inserting  ...............
 
         pdata=contact_person_table.objects.filter(vendor=vdata)
         salutation =request.POST.getlist('salutation[]')
@@ -629,6 +632,10 @@ def download_doc(request,pk):
 
 def cancel_vendor(request):
     return redirect("view_vendor_list")
+
+
+ # ...........................................changed...............
+   
 
 def delete_vendor(request,pk):
     if comments_table.objects.filter(vendor=pk).exists():
