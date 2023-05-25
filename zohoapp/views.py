@@ -443,7 +443,7 @@ def add_vendor(request):
         
        
                  
-        return redirect('base')
+        return redirect('view_vendor_list')
         
 
 def sample(request):
@@ -463,8 +463,9 @@ def view_vendor_details(request,pk):
     vdata2=vendor_table.objects.get(id=pk)
     mdata=mail_table.objects.filter(vendor=vdata2)
     ddata=doc_upload_table.objects.filter(user=udata,vendor=vdata2)
+    cmt_data=comments_table.objects.filter(user=udata,vendor=vdata2)
 
-    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata,'ddata':ddata})
+    return render(request,'vendor_details.html',{'vdata':vdata1,'vdata2':vdata2,'mdata':mdata,'ddata':ddata,'cmt_data':cmt_data})
 
 def add_comment(request,pk):
     if request.method=='POST':

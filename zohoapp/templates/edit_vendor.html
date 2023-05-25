@@ -37,7 +37,7 @@
          <div class="form-group row mt-4">
              <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Company Name</label></div>
               <div class="col-sm-12 col-md-6 col-lg-6">
-                  <input  type="text" class="form-control" name="company_name" value="{{ vdata.company_name }}">      
+                  <input  type="text" class="form-control" name="company_name" value="{{ vdata.company_name }}" >      
               </div>
 
 
@@ -45,12 +45,12 @@
           <div class="form-group row mt-4">
               <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Display Name</label></div>
                <div class="col-sm-12 col-md-6 col-lg-6">
-                  
-                      <select  name="v_display_name" class="form-control" onclick="vendor_display()">
-                      <option id="select2"></option>
+                      <select  name="v_display_name" class="form-control"  onclick="vendor_display()">              
+                      
+                      <option id="select2" selected>{{ vdata.salutation }} {{ vdata.first_name }} {{ vdata.last_name }}</option>
                           
                       </select> 
-    
+                      
                           
                         
                </div>

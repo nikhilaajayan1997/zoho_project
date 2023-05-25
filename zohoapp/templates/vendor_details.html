@@ -8,6 +8,25 @@
         background-color: rgba(110, 110, 110, 0.616);
         font-weight:bold ;
     }
+    #cmmt {
+  display:inline-block;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  vertical-align: top;
+}
+/*
+ * higher z-index brings element to front
+ * auto width cancels the overflow
+ */
+
+#cmmt:hover {
+  z-index:1;
+  width:auto;
+  background-color: #363636;
+}
     
 </style>
 
@@ -222,24 +241,100 @@
                   </fieldset1> 
 
                   <fieldset2 id="comments" style="display: none;">
-                    <form action="{% url 'add_comment' vdata2.id %}" method="post">
-                        {% csrf_token %}
-                        <div class="form-group row mt-4">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                 <textarea name="comment" id="" cols="60" rows="5" required> </textarea>
-                                 <div class="valid-feedback">Valid.</div>
-                                 <div class="invalid-feedback">Please fill out this field.</div> 
-                                 <label>(For Internal Use)</label> 
-                                 
-                            </div>
-                        </div> 
-                        <div class="row mt-4">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                   <input type="submit" class="btn btn-primary form-control" value="Add Comment">   
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-12 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <button class="btn btn-primary" onclick="fieldset7_function()">View</button>
                         </div>
-                    </form>                   
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <form action="{% url 'add_comment' vdata2.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group row mt-4">
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                         <textarea name="comment" id="" cols="60" rows="5" required> </textarea>
+                                         <div class="valid-feedback">Valid.</div>
+                                         <div class="invalid-feedback">Please fill out this field.</div> 
+                                         <label>(For Internal Use)</label> 
+                                         
+                                    </div>
+                                </div> 
+                                <div class="row mt-4">
+                                    <div class="col-sm-12 col-md-6 col-lg-6">
+                                           <input type="submit" class="btn btn-primary form-control" value="Add Comment">   
+                                    </div>
+                                </div>
+                            </form>  
+                        </div>
+                    </div>                
                   </fieldset2>
+
+                  <fieldset 7 id="view_cmt" style="display: none;">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                
+                            </div>
+                           
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                               
+                            
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+
+                                <div class="fixed-top" style="top: 17.5rem; margin-left: 18rem;">
+                                        
+                                    
+                                    <div class="row">
+                                        <!-- <div class="col-sm-12 col-md-4 col-lg-4"></div> -->
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                           
+
+                                        </div>
+        
+                                        <div class="col-sm-12 col-md-8 col-lg-8">
+
+                                            <div style="height: 300px;overflow-y: scroll;width: 100%;">
+                                                <table id="tbl" class="table  text-white" style="table-layout: fixed;">
+                                                    <thead>
+                                                      <tr>
+                                                        <th style="color: rgb(187, 129, 4);text-align: center;">Comments</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody >
+                                                      {% for v in cmt_data %}
+                                             
+                                                      <tr id="over">
+                                             
+                                                        <td style="word-break: break-all;color: rgb(172, 172, 171);">{{v.comment}}</td>
+                                                        
+                                        
+                                                       
+                                                      </tr>
+                                                      {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                             </div>
+                                         
+                                        </div>
+                                        <!-- <div class="col-sm-12 col-md-3 col-lg-3"></div> -->
+
+                                        
+                            
+                                    </div>
+                                 </div> 
+
+                            </div>
+                            
+                            
+                        </div>
+                        
+
+
+                  </fieldset 7>
+                 
 
                   <fieldset3 id="mail" style="display: none;">
                     <div class="row">
@@ -252,7 +347,7 @@
 
                         </div>
                     </div>
-                    <div style="height: 450px;overflow-y: scroll;">
+                    <div style="height: 250px;overflow-y: scroll;">
                         <form action="{% url 'sendmail' vdata2.id %}" method="post" enctype="multipart/form-data" class="was-validated">
                             {% csrf_token %}
                             <div class="form-group row mt-4">
@@ -438,6 +533,8 @@
         document.getElementById("sentmail").style.display="none";
         document.getElementById("attach").style.display="none";
         document.getElementById("doc_list").style.display="none";
+        document.getElementById("view_cmt").style.display="none";
+
 
 
 
@@ -452,6 +549,9 @@
         document.getElementById("attach").style.display="none";
 
         document.getElementById("doc_list").style.display="none";
+        document.getElementById("view_cmt").style.display="none";
+
+
 
 
 
@@ -464,6 +564,9 @@
         document.getElementById("sentmail").style.display="none";
         document.getElementById("attach").style.display="none";
         document.getElementById("doc_list").style.display="none";
+        document.getElementById("view_cmt").style.display="none";
+
+
 
 
 
@@ -477,6 +580,9 @@
         document.getElementById("sentmail").style.display="block";
         document.getElementById("attach").style.display="none";
         document.getElementById("doc_list").style.display="none";
+        document.getElementById("view_cmt").style.display="none";
+
+
 
 
 
@@ -495,6 +601,8 @@
 
 
 
+
+
     }
     function fieldset6_function(){
         document.getElementById("overview").style.display="none";
@@ -503,12 +611,36 @@
         document.getElementById("sentmail").style.display="none";
         document.getElementById("attach").style.display="none";
         document.getElementById("doc_list").style.display="block";
+        document.getElementById("view_cmt").style.display="none";
+
 
 
 
 
 
     }
+    function fieldset7_function(){
+        document.getElementById("view_cmt").style.display="block";
+
+
+        document.getElementById("overview").style.display="none";
+        document.getElementById("comments").style.display="none";
+        document.getElementById("mail").style.display="none";
+        document.getElementById("sentmail").style.display="none";
+        document.getElementById("attach").style.display="none";
+        document.getElementById("doc_list").style.display="none";
+
+
+
+
+
+    }
+
+    function view_comment(){
+
+    }
+
+
     function myFunction(){
         var input,filter,table,tr,td,i,txtValue;
         input=document.getElementById("myInput");
