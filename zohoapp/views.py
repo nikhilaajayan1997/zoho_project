@@ -632,7 +632,7 @@ def download_doc(request,pk):
     return response
 
 def cancel_vendor(request):
-    return redirect("view_vendor_list")
+    return redirect("vendor")
 
 
  # ...........................................changed...............
