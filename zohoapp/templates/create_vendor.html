@@ -110,7 +110,6 @@
                     </div>
                     <div class="toggle1" style="color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
                         <a href="">More Details</a>
-                        <!-- <button onclick="fieldset1_function()" style="background-color: transparent; border: none;color: rgb(230, 171, 45);font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">More Details</button> -->
 
                      </div>
  
@@ -685,7 +684,7 @@
         var txtcty = document.getElementById("bcty");
         var txtstat = document.getElementById("bste");
         var txtzip = document.getElementById("bzp");
-        var txtphone = document.getElementById("bphn");
+        var txtphone = document.getElementById("bphone_num");
         var txtfx = document.getElementById("bfx");
   
         var textatn1 = document.getElementById("satten");
@@ -694,17 +693,20 @@
         var txtcty1 = document.getElementById("scty");
         var txtstat1 = document.getElementById("sste");
         var txtzip1 = document.getElementById("szp");
-        var txtphone1 = document.getElementById("sphn");
+        var txtphone1 = document.getElementById("sphone_num");
         var txtfx1 = document.getElementById("sfx");
         if (checkBox.checked == true) {
+          textatn1.value = textatn.value;
           txtadrs21.value = txtadrs11.value;
           txtcty1.value = txtcty.value;
           txtstat1.value = txtstat.value;
-          txtzip1.value = txtzip.value;
+          txtzip1.value = txtzip.value; 
           txtphone1.value = txtphone.value;
           txtfx1.value = txtfx.value;
+          
 
-          textatn1.value = textatn.value;
+
+
           
   
         } else {
