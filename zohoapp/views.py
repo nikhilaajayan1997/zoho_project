@@ -355,7 +355,7 @@ def vendor(request):
     return render(request,'create_vendor.html')
 
 
-# ...........................................changed...............
+# ...........................................changed....................................
 
 @login_required(login_url='login')
 def add_vendor(request):
