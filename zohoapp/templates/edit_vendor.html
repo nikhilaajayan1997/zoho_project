@@ -37,7 +37,7 @@
          <div class="form-group row mt-4">
              <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Company Name</label></div>
               <div class="col-sm-12 col-md-6 col-lg-6">
-                  <input  type="text" class="form-control" name="company_name" value="{{ vdata.company_name }}" >      
+                  <input  type="text" class="form-control" name="company_name" value="{{ vdata.company_name }}">      
               </div>
 
 
@@ -45,12 +45,14 @@
           <div class="form-group row mt-4">
               <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Display Name</label></div>
                <div class="col-sm-12 col-md-6 col-lg-6">
-                      <select  name="v_display_name" class="form-control"  onclick="vendor_display()">              
-                      
+                  
+                      <select  name="v_display_name" class="form-control" onclick="vendor_display()">
+                      <!-- <option id="select2"></option> -->
                       <option id="select2" selected>{{ vdata.salutation }} {{ vdata.first_name }} {{ vdata.last_name }}</option>
+
                           
                       </select> 
-                      
+    
                           
                         
                </div>
@@ -82,12 +84,12 @@
            <div class="form-group row mt-4">
               <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
                <div class="col-sm-12 col-md-3 col-lg-3">
-                   <input id="workphone"  type="number" class="form-control" name="w_phone" value="{{ vdata.vendor_wphone }}">  
+                   <input id="workphone"  type="tel" pattern="[0-9]{7}" class="form-control" name="w_phone" value="{{ vdata.vendor_wphone }}">  
                    <label for="" id="workphone_label"></label>
     
                </div>
                <div class=" col-sm-12 col-md-3 col-lg-3">
-                  <input id="mphone"  type="number" class="form-control" onclick="work_phone()" name="m_phone" value="{{ vdata.vendor_mphone }}">   
+                  <input id="mphone" type="tel" pattern="[0-9]{10}" class="form-control" onclick="work_phone()" name="m_phone" value="{{ vdata.vendor_mphone }}">   
                   <label for="" id="mphone_label"></label>
 
               </div>
@@ -380,7 +382,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <input id="bphone_num"  type="number" class="form-control" name="bphone" value="{{ vdata.bphone }}" id="bphn">      
+                            <input id="bphone_num"  type="tel" pattern="[0-9]{10}" class="form-control" name="bphone" value="{{ vdata.bphone }}" id="bphn">      
                             <label for="" id="bphone_label"></label>      
 
                         </div>
@@ -388,7 +390,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <input  type="number" class="form-control" onclick="bphone_number()"  onmouseout="fax_number()" name="bfax" value="{{ vdata.bfax }}" id="bfx">      
+                            <input  type="tel" pattern="[0-9]{7}" class="form-control" onclick="bphone_number()"  onmouseout="fax_number()" name="bfax" value="{{ vdata.bfax }}" id="bfx">      
                             <label for="" id="fax_label"></label> 
 
                         </div>
@@ -445,7 +447,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <input  type="number" class="form-control" name="sphone" value="{{ vdata.sphone }}" id="sphone_num"> 
+                            <input  type="tel" pattern="[0-9]{10}" class="form-control" name="sphone" value="{{ vdata.sphone }}" id="sphone_num"> 
                             <label for="" id="sphone_label"></label>    
 
 
@@ -454,7 +456,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <input  type="number" class="form-control" onclick="sphone_number()" onmouseout="sfax_number()" name="sfax" value="{{ vdata.sfax }}" id="sfx">  
+                            <input  type="tel" pattern="[0-9]{7}" class="form-control" onclick="sphone_number()" onmouseout="sfax_number()" name="sfax" value="{{ vdata.sfax }}" id="sfx">  
                             <label for="" id="sfax_label"></label>     
 
                         </div>
@@ -494,18 +496,19 @@
                           <td><input type="text" style="width:8rem;" value="{{ p.first_name }}"  name="first_name[]" /></td>
                           <td><input type="text" style="width:8rem;" value="{{ p.last_name }}" name="last_name[]" /></td>
                           <td><input type="text" style="width:8rem;" value="{{ p.email }}" name="email[]" /></td>
-                          <td><input type="text" style="width:8rem;" id="twphone" value="{{ p.work_phone }}" name="wphone[]" /></td>
-                          <td><input type="text" style="width:8rem;" id="tmobile" onclick="sample1()" value="{{ p.mobile }}" name="mobile[]"/></td>
+                          <td><input type="tel" pattern="[0-9]{7}" style="width:8rem;" id="twphone" value="{{ p.work_phone }}" name="wphone[]" /></td>
+                          <td><input type="tel" pattern="[0-9]{10}" style="width:8rem;" id="tmobile" onclick="sample1()" value="{{ p.mobile }}" name="mobile[]"/></td>
                           <td><input type="text" style="width:8rem;" onclick="sample()" value="{{ p.skype_number }}" name="skype[]" /></td>
                           <td><input type="text" style="width:8rem;" value="{{ p.designation }}" name="designation[]" /></td>
                           <td><input type="text" style="width:8rem;" value="{{ p.department }}" name="department[]" /></td>
                         </tr>
                         {% endfor %}
                       </table>
-                      <div class="button add_another"
+                      
+                </div>
+                <div class="button add_another mt-3"
                     style="color: rgb(230, 171, 45);;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size:22px;">
                     + Add Contact Person</div>
-                </div>
                   
             </div>
             
@@ -542,10 +545,10 @@
                   
               </div>
                
-              <!-- <div class=" col-sm-12 col-md-2 col-lg-2">
+              <div class=" col-sm-12 col-md-2 col-lg-2">
                   <a href="" role="button" class="form-control btn btn-light" >Cancel</a>
 
-              </div> -->
+              </div>
 
 
           </div>
@@ -623,7 +626,7 @@
 
       $('document').ready(function () {
         $('.add_another').click(function () {
-          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" id="twphone" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" id="tmobile" onclick="sample1()" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" onclick="sample()" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{7}" id="twphone" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{10}" id="tmobile" onclick="sample1()" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" onclick="sample()" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
         });
       })
 
