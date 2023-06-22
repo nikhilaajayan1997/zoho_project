@@ -2,9 +2,11 @@
 {% block content %}
 {% load static %}
 
-<div class="fixed-top" style="top: 7rem; margin-left: 18rem;" >
+<!-- <div class="fixed-top" style="top: 7rem; margin-left: 18rem;" > -->
+    <div  style="top: 7rem; " >
+
      
-    <div style="height: 600px;overflow-y: scroll;">
+    <!-- <div style="height: 600px;overflow-y: scroll;"> -->
        <h3  class="mb-3  text-white " style="font-size: 2rem;">New Vendor</h3>     
 
       <form  method="post" action="{% url 'edit_vendor_details' vdata.id %}" enctype="multipart/form-data">
@@ -358,7 +360,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <textarea cols="26" rows="4" name="baddress">{{ vdata.baddress }}</textarea>
+                            <textarea cols="26" class="bg-dark" rows="4" name="baddress" style="border: none;color: white;">{{ vdata.baddress }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
@@ -423,7 +425,7 @@
                     <div class="form-group row mt-4">
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
                         <div class=" col-sm-12 col-md-6 col-lg-6">
-                            <textarea  id="sadd1" cols="26" rows="4" name="saddress">{{ vdata.saddress }}</textarea>
+                            <textarea class="bg-dark"  id="sadd1" cols="26" rows="4" name="saddress" style="border: none;color: white;">{{ vdata.saddress }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row mt-4">
@@ -485,22 +487,22 @@
                         </tr>
                         {% for p in pdata %}
                         <tr>
-                          <td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;">
+                          <td><select name="salutation[]" id="PLACE" class="bg-dark" style="width:8rem;height: 2.4rem;border: none;color: white">
                              <option value="{{ p.salutation }}" selected>{{ p.salutation }}</option>
                               <option value="Mr" >Mr.</option>
                               <option value="Mrs">Mrs.</option>
                               <option value="Ms">Ms.</option>
                               <option value="Miss">Miss.</option>
-                              <option value="Dr">Dr.</option>
+                              <option value="Dr">Dr.</option>  
                             </select></td>
-                          <td><input type="text" style="width:8rem;" value="{{ p.first_name }}"  name="first_name[]" /></td>
-                          <td><input type="text" style="width:8rem;" value="{{ p.last_name }}" name="last_name[]" /></td>
-                          <td><input type="text" style="width:8rem;" value="{{ p.email }}" name="email[]" /></td>
-                          <td><input type="tel" pattern="[0-9]{7}" style="width:8rem;" id="twphone" value="{{ p.work_phone }}" name="wphone[]" /></td>
-                          <td><input type="tel" pattern="[0-9]{10}" style="width:8rem;" id="tmobile" onclick="sample1()" value="{{ p.mobile }}" name="mobile[]"/></td>
-                          <td><input type="text" style="width:8rem;" onclick="sample()" value="{{ p.skype_number }}" name="skype[]" /></td>
-                          <td><input type="text" style="width:8rem;" value="{{ p.designation }}" name="designation[]" /></td>
-                          <td><input type="text" style="width:8rem;" value="{{ p.department }}" name="department[]" /></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" value="{{ p.first_name }}"   name="first_name[]" /></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" value="{{ p.last_name }}" name="last_name[]" /></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" value="{{ p.email }}" name="email[]" /></td>
+                          <td><input type="tel" pattern="[0-9]{7}" class="bg-dark" style="width:8rem;border: none;color: white" id="twphone" value="{{ p.work_phone }}" name="wphone[]" /></td>
+                          <td><input type="tel" pattern="[0-9]{10}" class="bg-dark" style="width:8rem;border: none;color: white" id="tmobile" onclick="sample1()" value="{{ p.mobile }}" name="mobile[]"/></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" onclick="sample()" value="{{ p.skype_number }}" name="skype[]" /></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" value="{{ p.designation }}" name="designation[]" /></td>
+                          <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white" value="{{ p.department }}" name="department[]" /></td>
                         </tr>
                         {% endfor %}
                       </table>
@@ -527,7 +529,7 @@
                 <div class="form-group row mt-4">
                     <!-- <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                     -->
                     <div class=" col-sm-12 col-md-6 col-lg-6">
-                        <textarea cols="70" rows="4" name="remark" >{{ rdata.remarks }}</textarea>
+                        <textarea cols="70" rows="4" name="remark" class="bg-dark" style="border: none;color: white;">{{ rdata.remarks }}</textarea>
                     </div>
                 </div>
             </div>
@@ -574,7 +576,7 @@
            
 
         </form>
-    </div>
+    <!-- </div> -->
 </div>
 
 
@@ -626,7 +628,7 @@
 
       $('document').ready(function () {
         $('.add_another').click(function () {
-          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" style="width:8rem;height: 2.4rem;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="email[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{7}" id="twphone" name="wphone[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{10}" id="tmobile" onclick="sample1()" name="mobile[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" onclick="sample()" name="skype[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" style="width:8rem;" class="txtbox" value="" /></td><td><input type="text" name="department[]" style="width:8rem;" class="txtbox" value="" /></td></tr>');
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" class="bg-dark" style="width:8rem;height: 2.4rem;border:none;color:white;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="text" name="email[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{7}" id="twphone" name="wphone[]"class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{10}" id="tmobile" onclick="sample1()" name="mobile[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="text" onclick="sample()" name="skype[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="text" name="designation[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td><td><input type="text" name="department[]" class="bg-dark" style="width:8rem;border: none;color: white" class="txtbox" value="" /></td></tr>');
         });
       })
 

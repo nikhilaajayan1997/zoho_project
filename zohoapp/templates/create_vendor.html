@@ -8,12 +8,14 @@
 <!-- style=" position: fixed;" -->
 
 <!-- <section > -->
-    <div class="fixed-top" style="top: 7rem; margin-left: 18rem;" >
+    <!-- <div class="fixed-top" style="top: 7rem; margin-left: 18rem;" > -->
+        <div  style="top: 7rem; " >
+
      
-          <div style="height: 600px;overflow-y: scroll;">
+          <!-- <div  style="height: 600px;overflow-y: scroll;"> -->
              <h3  class="mb-3  text-white " style="font-size: 2rem;">New Vendor</h3><br>     
       
-            <form  method="post" action="{% url 'add_vendor' %}"  enctype="multipart/form-data" class="">
+             <form  method="post" action="{% url 'add_vendor' %}"  enctype="multipart/form-data" class="">
               {% csrf_token %}
               
               
@@ -604,7 +606,7 @@
 
               </form>
 
-          </div>
+          <!-- </div> -->
     </div>
      
 
