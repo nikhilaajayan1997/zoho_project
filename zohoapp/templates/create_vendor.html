@@ -24,7 +24,7 @@
                     <label >Primary Contact</label>
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-3">
-                    <select id="select1"  name="salutation" class="form-control" >
+                    <select id="select1"  name="salutation" class="form-control bg-light text-dark  " >
                       
                      
                         <option value="Mr">Mr</option>
@@ -38,11 +38,11 @@
                        </select> 
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-3" >
-                    <input  type="text" class="form-control" id="fname" name="first_name" placeholder="first name" required >
+                    <input  type="text" class="form-control bg-light text-dark  " id="fname" name="first_name" placeholder="first name" required >
 
                 </div>
                 <div class="col-sm-12 col-md-3 col-lg-3" >
-                    <input type="text" class="form-control" id="lname" name="last_name" placeholder="last name" required >
+                    <input type="text" class="form-control bg-light text-dark " id="lname" name="last_name" placeholder="last name" required >
 
                 </div>
             </div>
@@ -50,7 +50,7 @@
                <div class="form-group row mt-4">
                    <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Company Name</label></div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                        <input  type="text" class="form-control" name="company_name" required>     
+                        <input  type="text" class="form-control bg-light text-dark " name="company_name" required>     
                         <div class="invalid-feedback">Please fill out this field.</div>   
  
                     </div>
@@ -61,7 +61,7 @@
                     <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Display Name</label></div>
                      <div class="col-sm-12 col-md-6 col-lg-6">
                         
-                            <select  name="v_display_name" class="form-control" onclick="vendor_display()">
+                            <select  name="v_display_name" class="form-control bg-light text-dark " onclick="vendor_display()">
                             <option id="select2"></option>
                                 
                             </select> 
@@ -88,7 +88,7 @@
                  <div class="form-group row mt-4">
                     <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Vendor Email</label></div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                         <input  type="email" class="form-control" name="vendor_email" required> 
+                         <input  type="email" class="form-control bg-light text-dark" name="vendor_email" required> 
                          <div class="invalid-feedback">Please fill out this field.</div>   
      
                      </div>
@@ -99,12 +99,12 @@
                  <!-- <div class="form-group row mt-4">
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
                      <div class="col-sm-12 col-md-3 col-lg-3">
-                         <input  type="number" class="form-control" name="w_phone" placeholder="work phone" required>
+                         <input  type="number" class="form-control bg-light text-dark" name="w_phone" placeholder="work phone" required>
                          <div class="invalid-feedback">Please fill out this field.</div>   
       
                      </div>
                      <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <input  type="number" class="form-control" name="m_phone" placeholder="mobile number" required>
+                        <input  type="number" class="form-control bg-light text-dark" name="m_phone" placeholder="mobile number" required>
                         <div class="invalid-feedback">Please fill out this field.</div>   
       
                     </div>
@@ -118,13 +118,13 @@
                  <div class="form-group row mt-4">
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label">Vendor phone</label>
                      <div class="col-sm-12 col-md-3 col-lg-3">
-                         <input id="workphone"  type="tel" class="form-control" pattern="[0-9]{7}"   name="w_phone" placeholder="work phone" required>
+                         <input id="workphone"  type="tel" class="form-control bg-light text-dark" pattern="[0-9]{7}"   name="w_phone" placeholder="work phone" required>
                          <label for="" id="workphone_label"></label>
                          <div class="invalid-feedback">Please fill out this field.</div>   
       
                      </div>
                      <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <input id="mphone"  type="tel" pattern="[0-9]{10}" class="form-control" onclick="work_phone()"                        name="m_phone" placeholder="mobile number" required>
+                        <input id="mphone"  type="tel" pattern="[0-9]{10}" class="form-control bg-light text-dark" onclick="work_phone()"                        name="m_phone" placeholder="mobile number" required>
                         <label for="" id="mphone_label"></label>
                         <div class="invalid-feedback">Please fill out this field.</div>   
       
@@ -145,7 +145,7 @@
                         <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Skype name/Number</label></div>
                        
                          <div class="col-sm-12 col-md-6 col-lg-6">
-                           <input  type="text" class="form-control" name="skype_number">      
+                           <input  type="text" class="form-control bg-light text-dark" name="skype_number">      
                          </div>
                          
      
@@ -156,7 +156,7 @@
                     <div class="form-group row mt-4">
                         <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Designation</label></div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                             <input  type="text" class="form-control" name="designation">      
+                             <input  type="text" class="form-control bg-light text-dark" name="designation">      
                          </div>
      
      
@@ -164,7 +164,7 @@
                     <div class="form-group row mt-4">
                         <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Department</label></div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                             <input  type="text" class="form-control" name="department">      
+                             <input  type="text" class="form-control bg-light text-dark" name="department">      
                          </div>
      
      
@@ -175,13 +175,13 @@
                 <!-- <div class="form-group row mt-4">
                     <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Website</label></div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                         <input type="text" class="form-control" name="website" required>      
+                         <input type="text" class="form-control bg-light text-dark" name="website" required>      
                     </div>
                 </div> -->
                 <div class="form-group row mt-4">
                     <div class="col-sm-12 col-md-3 col-lg-3 col-form-label"><label>Website</label></div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
-                         <input id="web" type="text" class="form-control" onclick="mobile_phone()"    name="website" required>      
+                         <input id="web" type="text" class="form-control bg-light text-dark" onclick="mobile_phone()"    name="website" required>      
                     </div>
                 </div>
 
@@ -225,7 +225,7 @@
                         <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> GST Treatment*</label>
                          
                         <div class=" col-sm-12 col-md-3 col-lg-3">
-                            <select name="gst" id="GSTT" class="form-control" onclick="gstPan_function()">
+                            <select name="gst" id="GSTT" class="form-control bg-light text-dark" onclick="gstPan_function()">
                                 <option value="Select a Gst Treatment" selected>Select a Gst Treatment</option>
                                 <option value="Registered Business-Regular Business that is registered under GST">Registered Business-Regular Business that is registered under GST</option>
                                 <option value="Registered Business-Composition Business that is registered under the Composition scheme in GST">
@@ -244,7 +244,7 @@
                             <label class="col-sm-12 col-md-3 col-lg-3 col-form-label"  style="color:rgb(214, 75, 75) ;"> GSTIN/UIN*</label>
                              
                             <div class=" col-sm-12 col-md-3 col-lg-3">
-                                <input type="text" class="form-control" name="gst_number" id="gst_input" onmouseout="gst_check()"> 
+                                <input type="text" class="form-control bg-light text-dark" name="gst_number" id="gst_input" onmouseout="gst_check()"> 
                                 <label id="gst_label"></label>     
         
                             </div>
@@ -259,7 +259,7 @@
                             <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > PAN</label>
                              
                             <div class=" col-sm-12 col-md-3 col-lg-3">
-                                <input type="text" class="form-control" id="pan_input" onmouseout="pan_check()" name="pan_number">  
+                                <input type="text" class="form-control bg-light text-dark" id="pan_input" onmouseout="pan_check()" name="pan_number">  
                                 <label id="pan_label"></label>     
     
         
@@ -278,7 +278,7 @@
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> Source Of Supply*</label>
                      
                     <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <select name="source_supply" id="PLACE" class="form-control">
+                        <select name="source_supply" id="PLACE" class="form-control bg-light text-dark">
                         <option value="value" selected></option>
                       <option value="[AN]-Andaman And Nicobar Islands">[AN]-Andaman And Nicobar Islands</option> <option value="[AD]-Andhra Pradesh">[AD]-Andhra Pradesh</option>
                       <option value="[AR]-Arunachal Pradesh">[AR]-Arunachal Pradesh	</option> <option value="volvo">[AS]-Assam</option>
@@ -310,7 +310,7 @@
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" style="color:rgb(214, 75, 75) ;"> Currency*</label>
                      
                     <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <select name="currency" id="PLACE" class="form-control">
+                        <select name="currency" id="PLACE" class="form-control bg-light text-dark">
                             <option value="Indian Rupee" selected>Indian Rupee</option>
                             <option value="Indian Rupee">Indian Rupee</option>
                   
@@ -324,7 +324,7 @@
                 <div class="form-group row mt-4">
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Opening Balance</label>                    
                     <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <input  type="number" class="form-control" name="opening_bal">      
+                        <input  type="number" class="form-control bg-light text-dark" name="opening_bal">      
                     </div>
                 </div>
 
@@ -333,7 +333,7 @@
                     <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Payment Terms</label>
                      
                     <div class=" col-sm-12 col-md-3 col-lg-3">
-                        <select name="payment_terms" id="PLACE" class="form-control">
+                        <select name="payment_terms" id="PLACE" class="form-control bg-light text-dark">
                             <option value="NET 60" >NET 60</option>
                             <option value="NET 45" >NET 45</option>                          
                             <option value="NET 30">NET 30</option>
@@ -365,13 +365,13 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="text" class="form-control" name="battention" id="batten">      
+                                    <input  type="text" class="form-control bg-light text-dark" name="battention" id="batten">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <select name="bcountry" id="btry" class="form-control">
+                                    <select name="bcountry" id="btry" class="form-control bg-light text-dark">
                                         <option value="India" selected>India</option>
                                     </select>      
                                 </div>
@@ -379,50 +379,50 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <textarea class="bg-dark" style="border: none;color: white;" cols="26" rows="4" name="baddress" id="badd1"></textarea>
+                                    <textarea class="bg-light " style="border: none;color: rgb(7, 7, 7);" cols="26" rows="4" name="baddress" id="badd1"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="text" class="form-control" name="bcity" id="bcty">      
+                                    <input  type="text" class="form-control bg-light text-dark" name="bcity" id="bcty">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input type="text" class="form-control" name="bstate" id="bste">      
+                                    <input type="text" class="form-control bg-light text-dark" name="bstate" id="bste">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="bzip" id="bzp">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="bzip" id="bzp">      
                                 </div>
                             </div>
                             <!-- <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="bphone" id="bphn">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="bphone" id="bphn">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="bfax" id="bfx">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="bfax" id="bfx">      
                                 </div>
                             </div> -->
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input id="bphone_num"  type="tel" pattern="[0-9]{10}" class="form-control" name="bphone" >
+                                    <input id="bphone_num"  type="tel" pattern="[0-9]{10}" class="form-control bg-light text-dark" name="bphone" >
                                     <label for="" id="bphone_label"></label>      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="tel" class="form-control" pattern="[0-9]{7}" onmouseout="fax_number()"  onclick="bphone_number()"                                       name="bfax" id="bfx">  
+                                    <input  type="tel" class="form-control bg-light text-dark" pattern="[0-9]{7}" onmouseout="fax_number()"  onclick="bphone_number()"                                       name="bfax" id="bfx">  
                                    
                                     <label for="" id="fax_label"></label> 
                                 </div>
@@ -442,13 +442,13 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Attention</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="text" class="form-control " style="color: white;" name="sattention" id="satten">      
+                                    <input  type="text" class="form-control bg-light text-dark " style="color: white;" name="sattention" id="satten">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Country</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <select name="scountry" id="sctry" class="form-control">
+                                    <select name="scountry" id="sctry" class="form-control bg-light text-dark">
                                         <option value="India" selected>India</option>
                                     </select>      
                                 </div>
@@ -456,51 +456,51 @@
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Address</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <textarea class="bg-dark" style="border: none;color: white;" id="sadd1" cols="26" rows="4" name="saddress"></textarea>
+                                    <textarea class="bg-light" style="border: none;color: rgb(10, 10, 10);" id="sadd1" cols="26" rows="4" name="saddress"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > City</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="text" class="form-control" name="scity" id="scty">      
+                                    <input  type="text" class="form-control bg-light text-dark" name="scity" id="scty">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > State</label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input type="text" class="form-control" name="sstate" id="sste">      
+                                    <input type="text" class="form-control bg-light text-dark" name="sstate" id="sste">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Zip Code </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="szip" id="szp">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="szip" id="szp">      
                                 </div>
                             </div>
                             <!-- <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="sphone" id="sphn">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="sphone" id="sphn">      
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="number" class="form-control" name="sfax" id="sfx">      
+                                    <input  type="number" class="form-control bg-light text-dark" name="sfax" id="sfx">      
                                 </div>
                             </div> -->
 
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Phone </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="tel" class="form-control" pattern="[0-9]{10}" style="color: white;" name="sphone" id="sphone_num">  
+                                    <input  type="tel" class="form-control bg-light text-dark" pattern="[0-9]{10}" style="color: white;" name="sphone" id="sphone_num">  
                                     <label for="" id="sphone_label"></label>    
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label class="col-sm-12 col-md-3 col-lg-3 col-form-label" > Fax </label>                    
                                 <div class=" col-sm-12 col-md-6 col-lg-6">
-                                    <input  type="tel" class="form-control" pattern="[0-9]{7}" style="color: white;" name="sfax" onclick="sphone_number()" onmouseout="sfax_number()" id="sfx"> 
+                                    <input  type="tel" class="form-control bg-light text-dark" pattern="[0-9]{7}" style="color: white;" name="sfax" onclick="sphone_number()" onmouseout="sfax_number()" id="sfx"> 
                                     <label for="" id="sfax_label"></label>     
                                 </div>
                             </div>
@@ -527,24 +527,24 @@
                                   <th >Department</th>
                                 </tr>
                                 <tr>
-                                  <td><select name="salutation[]" class="bg-dark" style="width:8rem;height: 2.4rem;border: none;color: white;" id="PLACE" style="width:8rem;height: 2.4rem;">
+                                  <td><select name="salutation[]" class="bg-light" style="width:8rem;height: 2.4rem;border: none;color: black;" id="PLACE" style="width:8rem;height: 2.4rem;">
                                       <option value="Mr" selected>Mr.</option>
                                       <option value="Mrs">Mrs.</option>
                                       <option value="Ms">Ms.</option>
                                       <option value="Miss">Miss.</option>
                                       <option value="Dr">Dr.</option>
                                     </select></td>
-                                  <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white;"  name="first_name[]" /></td>
-                                  <td><input type="text"class="bg-dark" style="width:8rem;border: none;color: white;" name="last_name[]" /></td>
-                                  <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white;" name="email[]" /></td>
+                                  <td><input type="text" class="bg-light" style="width:8rem;border: none;color: black;"  name="first_name[]" /></td>
+                                  <td><input type="text"class="bg-light" style="width:8rem;border: none;color: black;" name="last_name[]" /></td>
+                                  <td><input type="text" class="bg-light" style="width:8rem;border: none;color: black;" name="email[]" /></td>
                                   <!-- <td><input type="text" style="width:8rem;" name="wphone[]" /></td>
                                   <td><input type="text" style="width:8rem;" name="mobile[]" /></td>
                                   <td><input type="text" style="width:8rem;" name="skype[]" /></td> -->
-                                  <td><input type="tel" pattern="[0-9]{7}" class="bg-dark" style="width:8rem;border: none;color: white;" id="twphone" name="wphone[]"/></td>
-                                  <td><input type="tel" pattern="[0-9]{10}"  class="bg-dark" style="width:8rem;border: none;color: white;" id="tmobile" onclick="sample1()"   name="mobile[]" /></td>
-                                  <td><input type="number" class="bg-dark" style="width:8rem;border: none;color: white;" onclick="sample()" name="skype[]" /></td>
-                                  <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white;" name="designation[]" /></td>
-                                  <td><input type="text" class="bg-dark" style="width:8rem;border: none;color: white;" name="department[]" /></td>
+                                  <td><input type="tel" pattern="[0-9]{7}" class="bg-light" style="width:8rem;border: none;color: black;" id="twphone" name="wphone[]"/></td>
+                                  <td><input type="tel" pattern="[0-9]{10}"  class="bg-light" style="width:8rem;border: none;color: black;" id="tmobile" onclick="sample1()"   name="mobile[]" /></td>
+                                  <td><input type="number" class="bg-light" style="width:8rem;border: none;color: black;" onclick="sample()" name="skype[]" /></td>
+                                  <td><input type="text" class="bg-light" style="width:8rem;border: none;color: black;" name="designation[]" /></td>
+                                  <td><input type="text" class="bg-light" style="width:8rem;border: none;color: black;" name="department[]" /></td>
                                 </tr>
                               </table>
                              
@@ -570,7 +570,7 @@
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <div class="form-group row mt-4">
                             <div class=" col-sm-12 col-md-6 col-lg-6">
-                                <textarea class="bg-dark" style="border: none;color: white;" cols="70" rows="4" name="remark"></textarea>
+                                <textarea class="bg-light" style="border: none;color: rgb(5, 5, 5);" cols="70" rows="4" name="remark"></textarea>
                             </div>
                         </div>
                     </div>
@@ -584,13 +584,13 @@
             
             <div class="row mt-4">
                 <div class="col-sm-12 col-md-2 col-lg-2">
-                    <input type="submit" class="form-control btn-outline-warning" value="save">
-                    <!-- <a href="{% url 'add_vendor' %}" role="button" class="form-control"></a> -->
+                    <input type="submit" class="form-control bg-warning text-dark" style="font-weight: bold;" value="save">
+                    <!-- <a href="{% url 'add_vendor' %}" role="button" class="form-control bg-light text-dark"></a> -->
                     <!-- <button type="submit">save</button> -->
                 </div>
                  
                 <div class=" col-sm-12 col-md-2 col-lg-2">
-                    <a href="{% url 'cancel_vendor' %}" role="button" class="form-control btn btn-light" >Cancel</a>
+                    <a href="{% url 'cancel_vendor' %}" role="button" class="form-control  bg-warning text-dark" style="font-weight: bold;"><center>Cancel</center></a>
 
                 </div> 
 
@@ -737,7 +737,7 @@
 
     $('document').ready(function () {
         $('.add_another').click(function () {
-          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" class="bg-dark" style="width:8rem;height:2.4rem;border: none;color: white;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="email" name="email[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{7}" id="twphone" name="wphone[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{10}" id="tmobile" onclick="sample1()" name="mobile[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="number" onclick="sample()" name="skype[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td><td><input type="text" name="department[]" class="bg-dark" style="width:8rem;border: none;color: white;" class="txtbox" value="" /></td></tr>');
+          $("#tbl").append('<tr><td><select name="salutation[]" id="PLACE" class="bg-light" style="width:8rem;height:2.4rem;border: none;color: black;"><option value="Mr" selected>Mr.</option><option value=""Mrs">Mrs.</option><option value="Ms">Ms.</option><option value="Miss">Miss.</option><option value="Dr">Dr.</option></select>  </td><td><input type="text" name="first_name[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="text" name="last_name[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="email" name="email[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{7}" id="twphone" name="wphone[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="tel" pattern="[0-9]{10}" id="tmobile" onclick="sample1()" name="mobile[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="number" onclick="sample()" name="skype[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="text" name="designation[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td><td><input type="text" name="department[]" class="bg-light" style="width:8rem;border: none;color: black;" class="txtbox" value="" /></td></tr>');
         });
       })
 
