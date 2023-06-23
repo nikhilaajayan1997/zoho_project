@@ -658,6 +658,9 @@ def delete_vendor(request,pk):
     user1=vendor_table.objects.get(id=pk)
     user1.delete()
     return redirect("view_vendor_list")
+
+def report_page(request):
+    return render(request,'reports.html')
         
     
    

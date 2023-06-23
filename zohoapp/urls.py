@@ -34,4 +34,7 @@ urlpatterns = [
     path('download_doc/<int:pk>',views.download_doc,name='download_doc'),
     path('cancel_vendor/',views.cancel_vendor,name='cancel_vendor'),
     path('delete_vendor/<int:pk>',views.delete_vendor,name='delete_vendor'),
+
+
+    path('report_page/',views.report_page,name='report_page'),
 ]
