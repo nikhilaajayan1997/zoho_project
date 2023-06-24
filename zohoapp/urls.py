@@ -37,4 +37,5 @@ urlpatterns = [
 
 
     path('report_page/',views.report_page,name='report_page'),
+    path('report_recurring_invoice/',views.report_recurring_invoice,name='report_recurring_invoice'),
 ]

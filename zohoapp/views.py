@@ -661,6 +661,9 @@ def delete_vendor(request,pk):
 
 def report_page(request):
     return render(request,'reports.html')
+
+def report_recurring_invoice(request):
+    return render(request,'report_recurring_invoice.html')
         
     
    
