@@ -27,23 +27,141 @@
                    
             
                     <input type="text" id="myInput" class="dropdown-toggle form-control bg-light text-dark" onkeyup="filterFunction()"  data-bs-toggle="dropdown" aria-expanded="false" placeholder="search reports" >
-                    <!-- </div> -->
                     <ul class="dropdown-menu dropdown-menu-dark "  style="overflow-y: scroll;height: 100px;width: 100%;">
-                      <li class="dropdown-header"> fruits
+                      <li class="dropdown-header"> Business Overview
                       <!-- <li> -->
-                        <a class="dropdown-item " href="#">Orange</a>
-    
-                        <a class="dropdown-item " href="#">Apple</a>
+                        
+                <a class="dropdown-item " href="#" style="font-size: small;">Profit and Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Profit and Loss (schedule lll)</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Horizontal Profit and Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Cash Flow Statement</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Balance Sheet</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Horizontal Balance Sheet</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Balance Sheet (schedule lll)</a>
                       </li>
-                    <!-- <li>
-                        <a class="dropdown-item " href="#">Orange</a>
-                    </li> -->
-                    <li class="dropdown-header"> Vegetables
+                    
+                    <li class="dropdown-header"> Sales
     
-                      <!-- <li> -->
-                        <a class="dropdown-item" href="#">onion</a>
-                        <a class="dropdown-item" href="#">chilli</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Customer</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Item</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Sales Person</a>
+        
                     </li>
+                    <li class="dropdown-header"> Inventory
+    
+                        <a class="dropdown-item " href="#" style="font-size: small;">Inventory Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Inventory Valuation Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">FIFO Cost Lot Tracking</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Product Sales Report</a>
+        
+        
+                    </li>
+                    <li class="dropdown-header"> Receivables
+    
+                        <a class="dropdown-item " href="#" style="font-size: small;">Customer Balences</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Aging Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Aging Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Invoice Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Retainer Invoice Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Sales Order Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Delivery Cahallan Details </a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Estimate Details </a>
+        
+        
+        
+                    </li>
+                    <li class="dropdown-header"> Payment Received
+                        <a class="dropdown-item " href="#" style="font-size: small;">Payment Received</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Time to Get Paid</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Credit Note Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: small;">Refund History</a>
+        
+
+                      </li> 
+                      <li class="dropdown-header"> Recurring Invoices
+                        <a class="dropdown-item " href="{% url 'report_recurring_invoice' %}" style="font-size: small;">Recurring Invoice Details</a>
+
+                      
+                        </li>
+                        <li class="dropdown-header">Payables
+                            <a class="dropdown-item " href="#" style="font-size: small;">Vendor Balences</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Aging Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Aging Details</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Bills Details</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Vendor Credits Details</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Payments Made</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Refund History </a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Purchase Order Details </a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Purchase Orders by Vendor </a>
+
+
+                        </li>
+                        <li class="dropdown-header">Purchases & Expences
+                            <a class="dropdown-item " href="#" style="font-size: small;">Purchases by Vendor</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Purchases by Item</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Expense Details</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Category</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Customer</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Project</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Employee</a>
+            
+
+
+                         </li>  
+                         <li class="dropdown-header">Taxes
+                            <a class="dropdown-item " href="#" style="font-size: small;">Tax Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">TDS Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">GSTR-3B Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Summary of Outward Supplies</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Summary of Inward Supplies</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Self Invoice Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Annual Summary(GSTR-9)</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Overseas Digital Tax Summary</a>
+            
+                        
+                        </li>
+                        <li class="dropdown-header">Projects & Timesheet
+                            <a class="dropdown-item " href="#" style="font-size: small;">Project Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Project Details</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Timesheet Details</a>
+
+
+                        </li>
+                        <li class="dropdown-header">Accountant
+                            <a class="dropdown-item " href="#" style="font-size: small;">Account Transactions</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Account Type Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Account Type Transactions</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Day Book</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">General Ledger</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Detailed General Ledger</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Journel Report</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Trial Balance</a>
+
+                            
+                        </li>
+
+                        <li class="dropdown-header">Activity
+                            <a class="dropdown-item " href="#" style="font-size: small;">System Mails</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Activity Logs</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Exception Report</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Portal Activities</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">Client Reviews</a>
+                            <a class="dropdown-item " href="#" style="font-size: small;">API Usage</a>
+            
+                            
+                        </li>
+                        <li class="dropdown-header">Currency
+                            <a class="dropdown-item " href="#" style="font-size: small;">Realized Gain or Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: small;">Unrealized Gain or Loss</a>
+
+                            
+                        </li>
+                        <li class="dropdown-header">Budgets
+                            <a class="dropdown-item " href="#" style="font-size: small;">Budget vs Actuals</a>                          
+                        </li>
+ 
+
+                    
                     
                       
                     </ul>
@@ -85,7 +203,7 @@
         <div class="col-sm-12 col-md-4 col-lg-4 ">
             <div class="pb-5" style="width: 100%;background-color: rgba(43, 42, 42, 0.486);height: 300px;">
                 <center><h3 class="pt-3 pb-2" style="color: white;">
-                    <img width="38" height="38" src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/external-inventory-basic-ui-elements-2.2-sbts2018-flat-sbts2018.png" alt="external-inventory-basic-ui-elements-2.2-sbts2018-flat-sbts2018"/>
+                    <img width="30" height="30" src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/external-inventory-basic-ui-elements-2.2-sbts2018-flat-sbts2018.png" alt="external-inventory-basic-ui-elements-2.2-sbts2018-flat-sbts2018"/>
                     Inventory
                 </h3></center>
                 <a id="a_over" href="#" class="ps-4" style="text-decoration: none;"> <img width="10" height="10" src="https://img.icons8.com/color/48/starburst-shape.png" alt="starburst-shape"/>&nbsp;&nbsp;&nbsp;Inventory Summary</a><br>
@@ -98,8 +216,10 @@
       <div class="row mt-5">
         <div class="col-sm-12 col-md-4 col-lg-4 ">
             <div class="pb-5" style="width: 100%;background-color: rgba(43, 42, 42, 0.486);height: 300px;">
+
                 <center><h3 class="pt-3 pb-2" style="color: white;">
-                    <img width="48" height="48" src="https://img.icons8.com/external-flatarticons-blue-flatarticons/65/external-Cash-in-Hand-accounting-and-finance-flatarticons-blue-flatarticons.png" alt="external-Cash-in-Hand-accounting-and-finance-flatarticons-blue-flatarticons"/>                                        Receivables
+                    <img width="48" height="48" src="https://img.icons8.com/external-flatarticons-blue-flatarticons/65/external-Cash-in-Hand-accounting-and-finance-flatarticons-blue-flatarticons.png" alt="external-Cash-in-Hand-accounting-and-finance-flatarticons-blue-flatarticons"/>  
+                                                          Receivables
                 </h3></center>
                 <a id="a_over" href="#" class="ps-4" style="text-decoration: none;"> <img width="10" height="10" src="https://img.icons8.com/color/48/starburst-shape.png" alt="starburst-shape"/>&nbsp;&nbsp;&nbsp;Customer Balences</a><br>
                 <a id="a_over" href="#" class="ps-4" style="text-decoration: none;"> <img width="10" height="10" src="https://img.icons8.com/color/48/starburst-shape.png" alt="starburst-shape"/>&nbsp;&nbsp;&nbsp;Aging Summary</a><br>
