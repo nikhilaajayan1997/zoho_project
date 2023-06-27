@@ -22,142 +22,143 @@
             <div class="col-sm-12 col-md-4 col-lg-4">
                 <h3>All Reports</h3>
             </div>
-            <div  class="col-sm-12 col-md-6 col-lg-6">
-                <div class="dropdown " id="myDropdown" >
+            <div  class="col-sm-12 col-md-8 col-lg-8">
+                
+                <div class="dropdown " id="myDropdown">
                    
-            
                     <input type="text" id="myInput" class="dropdown-toggle form-control bg-light text-dark" onkeyup="filterFunction()"  data-bs-toggle="dropdown" aria-expanded="false" placeholder="search reports" >
-                    <ul class="dropdown-menu dropdown-menu-dark "  style="overflow-y: scroll;height: 100px;width: 100%;">
-                      <li class="dropdown-header"> Business Overview
+                    <ul class="dropdown-menu dropdown-menu-dark "  style="overflow-y: scroll;height: 300px;width: 100%;background-color: rgba(158, 156, 156, 0.932);"> 
+                        <!-- dropdown-menu-dark  -->
+                      <li class="dropdown-header "> <span style="color: rgb(173, 101, 5);font-weight: bold;font-size: larger;">Business Overview</span>
                       <!-- <li> -->
                         
-                <a class="dropdown-item " href="#" style="font-size: small;">Profit and Loss</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Profit and Loss (schedule lll)</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Horizontal Profit and Loss</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Cash Flow Statement</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Balance Sheet</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Horizontal Balance Sheet</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Balance Sheet (schedule lll)</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Profit and Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Profit and Loss (schedule lll)</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Horizontal Profit and Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Cash Flow Statement</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Balance Sheet</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Horizontal Balance Sheet</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Balance Sheet (schedule lll)</a>
                       </li>
                     
-                    <li class="dropdown-header"> Sales
+                    <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Sales</span> 
     
-                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Customer</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Item</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Sales by Sales Person</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Sales by Customer</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Sales by Item</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Sales by Sales Person</a>
         
                     </li>
-                    <li class="dropdown-header"> Inventory
+                    <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Inventory</span> 
     
-                        <a class="dropdown-item " href="#" style="font-size: small;">Inventory Summary</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Inventory Valuation Summary</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">FIFO Cost Lot Tracking</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Product Sales Report</a>
-        
-        
-                    </li>
-                    <li class="dropdown-header"> Receivables
-    
-                        <a class="dropdown-item " href="#" style="font-size: small;">Customer Balences</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Aging Summary</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Aging Details</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Invoice Details</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Retainer Invoice Details</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Sales Order Details</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Delivery Cahallan Details </a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Estimate Details </a>
-        
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Inventory Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Inventory Valuation Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">FIFO Cost Lot Tracking</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Product Sales Report</a>
         
         
                     </li>
-                    <li class="dropdown-header"> Payment Received
-                        <a class="dropdown-item " href="#" style="font-size: small;">Payment Received</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Time to Get Paid</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Credit Note Details</a>
-                        <a class="dropdown-item " href="#" style="font-size: small;">Refund History</a>
+                    <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Receivables</span> 
+    
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Customer Balences</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Aging Summary</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Aging Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Invoice Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Retainer Invoice Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Sales Order Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Delivery Cahallan Details </a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Estimate Details </a>
+        
+        
+        
+                    </li>
+                    <li class="dropdown-header"> <span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Payment Received</span>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Payment Received</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Time to Get Paid</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Credit Note Details</a>
+                        <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Refund History</a>
         
 
                       </li> 
-                      <li class="dropdown-header"> Recurring Invoices
-                        <a class="dropdown-item " href="{% url 'report_recurring_invoice' %}" style="font-size: small;">Recurring Invoice Details</a>
+                      <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Recurring Invoices</span> 
+                        <a class="dropdown-item " href="{% url 'report_recurring_invoice' %}" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Recurring Invoice Details</a>
 
                       
                         </li>
-                        <li class="dropdown-header">Payables
-                            <a class="dropdown-item " href="#" style="font-size: small;">Vendor Balences</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Aging Summary</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Aging Details</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Bills Details</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Vendor Credits Details</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Payments Made</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Refund History </a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Purchase Order Details </a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Purchase Orders by Vendor </a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Payables</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Vendor Balences</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Aging Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Aging Details</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Bills Details</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Vendor Credits Details</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Payments Made</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Refund History </a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Purchase Order Details </a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Purchase Orders by Vendor </a>
 
 
                         </li>
-                        <li class="dropdown-header">Purchases & Expences
-                            <a class="dropdown-item " href="#" style="font-size: small;">Purchases by Vendor</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Purchases by Item</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Expense Details</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Category</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Customer</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Project</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Expenses by Employee</a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Purchases & Expences</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Purchases by Vendor</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Purchases by Item</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Expense Details</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Expenses by Category</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Expenses by Customer</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Expenses by Project</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Expenses by Employee</a>
             
 
 
                          </li>  
-                         <li class="dropdown-header">Taxes
-                            <a class="dropdown-item " href="#" style="font-size: small;">Tax Summary</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">TDS Summary</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">GSTR-3B Summary</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Summary of Outward Supplies</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Summary of Inward Supplies</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Self Invoice Summary</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Annual Summary(GSTR-9)</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Overseas Digital Tax Summary</a>
+                         <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Taxes</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Tax Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">TDS Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">GSTR-3B Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Summary of Outward Supplies</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Summary of Inward Supplies</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Self Invoice Summary</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Annual Summary(GSTR-9)</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Overseas Digital Tax Summary</a>
             
                         
                         </li>
-                        <li class="dropdown-header">Projects & Timesheet
-                            <a class="dropdown-item " href="#" style="font-size: small;">Project Summary</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Project Details</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Timesheet Details</a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Projects & Timesheet</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Project Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Project Details</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Timesheet Details</a>
 
 
                         </li>
-                        <li class="dropdown-header">Accountant
-                            <a class="dropdown-item " href="#" style="font-size: small;">Account Transactions</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Account Type Summary</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Account Type Transactions</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Day Book</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">General Ledger</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Detailed General Ledger</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Journel Report</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Trial Balance</a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Accountant</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Account Transactions</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Account Type Summary</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Account Type Transactions</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Day Book</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">General Ledger</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Detailed General Ledger</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Journel Report</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Trial Balance</a>
 
                             
                         </li>
 
-                        <li class="dropdown-header">Activity
-                            <a class="dropdown-item " href="#" style="font-size: small;">System Mails</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Activity Logs</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Exception Report</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Portal Activities</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">Client Reviews</a>
-                            <a class="dropdown-item " href="#" style="font-size: small;">API Usage</a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Activity</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">System Mails</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Activity Logs</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Exception Report</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Portal Activities</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Client Reviews</a>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">API Usage</a>
             
                             
                         </li>
-                        <li class="dropdown-header">Currency
-                            <a class="dropdown-item " href="#" style="font-size: small;">Realized Gain or Loss</a>
-                <a class="dropdown-item " href="#" style="font-size: small;">Unrealized Gain or Loss</a>
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Currency</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Realized Gain or Loss</a>
+                <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Unrealized Gain or Loss</a>
 
                             
                         </li>
-                        <li class="dropdown-header">Budgets
-                            <a class="dropdown-item " href="#" style="font-size: small;">Budget vs Actuals</a>                          
+                        <li class="dropdown-header"><span style="color: rgb(184, 121, 4);font-weight: bold;font-size: larger;">Budgets</span>
+                            <a class="dropdown-item " href="#" style="font-size: medium;color: rgb(26, 25, 25);font-weight:500;">Budget vs Actuals</a>                          
                         </li>
  
 
@@ -258,7 +259,7 @@
       <div class="row mt-5">
         <div class="col-sm-12 col-md-4 col-lg-4 ">
             <div class="pb-5" style="width: 100%;background-color: rgba(43, 42, 42, 0.486);height: 320px;">
-                <center><h3 class="pt-3 pb-2" style="color: white;">
+                <center><h3 id="sea" class="pt-3 pb-2" style="color: white;">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/buy-for-coins.png" alt="buy-for-coins"/>
                                         Payables
                 </h3></center>
@@ -277,7 +278,7 @@
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 ">
             <div class="pb-5" style="width: 100%;background-color: rgba(43, 42, 42, 0.486);height: 320px;">
-                <center><h3 class="pt-3 pb-2" style="color: white;">
+                <center><h3  class="pt-3 pb-2" style="color: white;">
                     <img width="48" height="48" src="https://img.icons8.com/fluency/48/shopping-bag.png" alt="shopping-bag"/>
                                                            Purchases & Expences
                 </h3></center>
